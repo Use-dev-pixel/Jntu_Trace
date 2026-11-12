@@ -1,156 +1,157 @@
 {
   "schemaVersion": 1,
-  "examId": "JAVA-OOP-200",
-  "examName": "Java OOP & Exceptions",
-  "durationMinutes": 60,
+  "examId": "JAVA-ALGO-300",
+  "examName": "Java Algorithms & Arrays",
+  "durationMinutes": 45,
   "totalMarks": 60,
   "passingMarks": 30,
   "negativeMarkingEnabled": true,
   "negativeMarkFactor": 0.25,
-  "randomizeQuestions": false,
+  "randomizeQuestions": true,
   "maxAttempts": 1,
   "questions": [
     {
-      "id": "Q-MCQ-003",
+      "id": "Q-MCQ-005",
       "type": "MCQ",
-      "title": "Polymorphism",
-      "description": "Which mechanism allows Java to resolve method calls at runtime based on the actual object type rather than the reference type?",
-      "topic": "OOP",
+      "title": "Loop Control",
+      "description": "In Java, which loop is guaranteed to execute its body at least once, even if the condition is initially false?",
+      "topic": "Loops",
+      "difficulty": "Easy",
+      "marks": 5,
+      "negativeMarks": 1.25,
+      "explanation": "A do-while loop checks its condition after executing the block, guaranteeing at least one execution.",
+      "options": [
+        { "id": "A", "text": "for loop", "correct": false },
+        { "id": "B", "text": "while loop", "correct": false },
+        { "id": "C", "text": "do-while loop", "correct": true },
+        { "id": "D", "text": "enhanced for loop", "correct": false }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "Q-MCQ-006",
+      "type": "MCQ",
+      "title": "Array Bounds",
+      "description": "If an array is declared as `int[] arr = new int[5];`, what happens if you try to access `arr[5]`?",
+      "topic": "Arrays",
       "difficulty": "Medium",
       "marks": 5,
       "negativeMarks": 1.25,
-      "explanation": "Dynamic method dispatch (or dynamic binding) is how Java implements runtime polymorphism via method overriding.",
+      "explanation": "Array indices are zero-based. A size of 5 means valid indices are 0 through 4. Accessing index 5 throws an ArrayIndexOutOfBoundsException.",
       "options": [
-        { "id": "A", "text": "Method Overloading", "correct": false },
-        { "id": "B", "text": "Dynamic Method Dispatch", "correct": true },
-        { "id": "C", "text": "Static Binding", "correct": false },
-        { "id": "D", "text": "Encapsulation", "correct": false }
+        { "id": "A", "text": "It returns 0.", "correct": false },
+        { "id": "B", "text": "It throws an ArrayIndexOutOfBoundsException.", "correct": true },
+        { "id": "C", "text": "It returns null.", "correct": false },
+        { "id": "D", "text": "The array automatically expands to size 6.", "correct": false }
       ],
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-004",
-      "type": "MCQ",
-      "title": "Exception Hierarchy",
-      "description": "Which of the following is NOT a checked exception in Java?",
-      "topic": "Exceptions",
-      "difficulty": "Hard",
-      "marks": 5,
-      "negativeMarks": 1.25,
-      "explanation": "RuntimeException and its subclasses (like NullPointerException) are unchecked exceptions.",
-      "options": [
-        { "id": "A", "text": "IOException", "correct": false },
-        { "id": "B", "text": "SQLException", "correct": false },
-        { "id": "C", "text": "ClassNotFoundException", "correct": false },
-        { "id": "D", "text": "NullPointerException", "correct": true }
-      ],
-      "multipleCorrect": false
-    },
-    {
-      "id": "Q-MULTI-002",
+      "id": "Q-MULTI-003",
       "type": "MULTI_SELECT",
-      "title": "Abstract Classes vs Interfaces",
-      "description": "Which of the following statements are true regarding Abstract Classes and Interfaces in Java 8+? (Select all that apply)",
-      "topic": "OOP",
-      "difficulty": "Hard",
+      "title": "Java Data Types",
+      "description": "Which of the following are primitive data types in Java? (Select all that apply)",
+      "topic": "Basics",
+      "difficulty": "Medium",
       "marks": 10,
       "negativeMarks": 2.5,
       "options": [
-        { "id": "A", "text": "A class can extend only one abstract class, but implement multiple interfaces.", "correct": true },
-        { "id": "B", "text": "Interfaces can have default and static methods.", "correct": true },
-        { "id": "C", "text": "Abstract classes cannot have constructors.", "correct": false },
-        { "id": "D", "text": "A class must implement all methods of an interface unless it is declared abstract.", "correct": true }
+        { "id": "A", "text": "int", "correct": true },
+        { "id": "B", "text": "String", "correct": false },
+        { "id": "C", "text": "boolean", "correct": true },
+        { "id": "D", "text": "double", "correct": true },
+        { "id": "E", "text": "Array", "correct": false }
       ],
       "multipleCorrect": true
     },
     {
-      "id": "Q-PROG-003",
+      "id": "Q-PROG-005",
       "type": "PROGRAMMING",
-      "title": "Count Vowels",
-      "description": "Write a program that reads a single string and prints the total number of vowels (a, e, i, o, u) in it. Ignore case.",
-      "constraints": "1 <= string length <= 1000\nInput will contain only letters (a-z, A-Z).",
-      "inputFormat": "A single word or sentence string.",
-      "outputFormat": "A single integer.",
-      "sampleInput": "Hello World",
-      "sampleOutput": "3",
-      "topic": "Strings",
+      "title": "Find the Maximum",
+      "description": "Read an integer N, followed by N integers. Print the largest number in the list.",
+      "constraints": "1 <= N <= 10^5\n-10^6 <= each number <= 10^6",
+      "inputFormat": "Line 1: Integer N\nLine 2: N space-separated integers",
+      "outputFormat": "A single integer representing the maximum value.",
+      "sampleInput": "5\n1 9 3 4 5",
+      "sampleOutput": "9",
+      "topic": "Arrays",
       "difficulty": "Easy",
       "marks": 15,
       "language": "JAVA",
       "timeLimitMs": 2000,
       "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // TODO: Read the string, count vowels (a, e, i, o, u) ignoring case, and print the count\n    }\n}\n",
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Read N numbers, find the maximum, and print it\n    }\n}\n",
       "publicTestCases": [
         {
           "id": "P1",
-          "input": "Hello World\n",
-          "expectedOutput": "3\n",
+          "input": "5\n1 9 3 4 5\n",
+          "expectedOutput": "9\n",
           "hidden": false
         },
         {
           "id": "P2",
-          "input": "Java\n",
-          "expectedOutput": "2\n",
+          "input": "3\n-5 -2 -9\n",
+          "expectedOutput": "-2\n",
           "hidden": false
         }
       ],
       "hiddenTestCases": [
         {
           "id": "H1",
-          "input": "AEIOU\n",
-          "expectedOutput": "5\n",
+          "input": "1\n42\n",
+          "expectedOutput": "42\n",
           "hidden": true
         },
         {
           "id": "H2",
-          "input": "rhythm\n",
-          "expectedOutput": "0\n",
+          "input": "4\n100 200 300 50\n",
+          "expectedOutput": "300\n",
           "hidden": true
         }
       ]
     },
     {
-      "id": "Q-PROG-004",
+      "id": "Q-PROG-006",
       "type": "PROGRAMMING",
-      "title": "Factorial Calculator",
-      "description": "Read a positive integer N and print its factorial (N!).\nNote: Factorials can get very large very quickly. Use `long` instead of `int`.",
-      "constraints": "1 <= N <= 20",
+      "title": "Fibonacci Sequence",
+      "description": "Write a program that prints the first N numbers of the Fibonacci sequence separated by spaces.\nThe sequence starts with 0 and 1.",
+      "constraints": "1 <= N <= 50",
       "inputFormat": "A single integer N.",
-      "outputFormat": "A single integer representing N!.",
+      "outputFormat": "N space-separated integers.",
       "sampleInput": "5",
-      "sampleOutput": "120",
-      "topic": "Math",
+      "sampleOutput": "0 1 1 2 3",
+      "topic": "Algorithms",
       "difficulty": "Medium",
       "marks": 15,
       "language": "JAVA",
       "timeLimitMs": 2000,
       "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Calculate and print n! using a long\n    }\n}\n",
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Print the first N Fibonacci numbers separated by spaces\n    }\n}\n",
       "publicTestCases": [
         {
           "id": "P1",
           "input": "5\n",
-          "expectedOutput": "120\n",
+          "expectedOutput": "0 1 1 2 3\n",
           "hidden": false
         },
         {
           "id": "P2",
           "input": "1\n",
-          "expectedOutput": "1\n",
+          "expectedOutput": "0\n",
           "hidden": false
         }
       ],
       "hiddenTestCases": [
         {
           "id": "H1",
-          "input": "10\n",
-          "expectedOutput": "3628800\n",
+          "input": "8\n",
+          "expectedOutput": "0 1 1 2 3 5 8 13\n",
           "hidden": true
         },
         {
           "id": "H2",
-          "input": "20\n",
-          "expectedOutput": "2432902008176640000\n",
+          "input": "2\n",
+          "expectedOutput": "0 1\n",
           "hidden": true
         }
       ]
