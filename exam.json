@@ -1,155 +1,156 @@
 {
   "schemaVersion": 1,
-  "examId": "JAVA-MASTER-100",
-  "examName": "Java Mastery Test",
-  "durationMinutes": 45,
-  "totalMarks": 50,
-  "passingMarks": 25,
+  "examId": "JAVA-OOP-200",
+  "examName": "Java OOP & Exceptions",
+  "durationMinutes": 60,
+  "totalMarks": 60,
+  "passingMarks": 30,
   "negativeMarkingEnabled": true,
   "negativeMarkFactor": 0.25,
   "randomizeQuestions": false,
-  "maxAttempts": 3,
+  "maxAttempts": 1,
   "questions": [
     {
-      "id": "Q-MCQ-001",
+      "id": "Q-MCQ-003",
       "type": "MCQ",
-      "title": "String Immutability",
-      "description": "Which of the following is true about Strings in Java?",
-      "topic": "Strings",
-      "difficulty": "Easy",
-      "marks": 5,
-      "negativeMarks": 1.25,
-      "explanation": "Strings are immutable. Once created, their values cannot be changed.",
-      "options": [
-        { "id": "A", "text": "Strings are mutable and can be changed in place.", "correct": false },
-        { "id": "B", "text": "Strings are immutable.", "correct": true },
-        { "id": "C", "text": "Strings can only hold numbers.", "correct": false },
-        { "id": "D", "text": "Strings are primitive data types.", "correct": false }
-      ],
-      "multipleCorrect": false
-    },
-    {
-      "id": "Q-MCQ-002",
-      "type": "MCQ",
-      "title": "Default values",
-      "description": "What is the default value of an uninitialized boolean instance variable in Java?",
-      "topic": "Basics",
+      "title": "Polymorphism",
+      "description": "Which mechanism allows Java to resolve method calls at runtime based on the actual object type rather than the reference type?",
+      "topic": "OOP",
       "difficulty": "Medium",
       "marks": 5,
       "negativeMarks": 1.25,
+      "explanation": "Dynamic method dispatch (or dynamic binding) is how Java implements runtime polymorphism via method overriding.",
       "options": [
-        { "id": "A", "text": "true", "correct": false },
-        { "id": "B", "text": "false", "correct": true },
-        { "id": "C", "text": "null", "correct": false },
-        { "id": "D", "text": "0", "correct": false }
+        { "id": "A", "text": "Method Overloading", "correct": false },
+        { "id": "B", "text": "Dynamic Method Dispatch", "correct": true },
+        { "id": "C", "text": "Static Binding", "correct": false },
+        { "id": "D", "text": "Encapsulation", "correct": false }
       ],
       "multipleCorrect": false
     },
     {
-      "id": "Q-MULTI-001",
+      "id": "Q-MCQ-004",
+      "type": "MCQ",
+      "title": "Exception Hierarchy",
+      "description": "Which of the following is NOT a checked exception in Java?",
+      "topic": "Exceptions",
+      "difficulty": "Hard",
+      "marks": 5,
+      "negativeMarks": 1.25,
+      "explanation": "RuntimeException and its subclasses (like NullPointerException) are unchecked exceptions.",
+      "options": [
+        { "id": "A", "text": "IOException", "correct": false },
+        { "id": "B", "text": "SQLException", "correct": false },
+        { "id": "C", "text": "ClassNotFoundException", "correct": false },
+        { "id": "D", "text": "NullPointerException", "correct": true }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "Q-MULTI-002",
       "type": "MULTI_SELECT",
-      "title": "Java Collections Framework",
-      "description": "Which of the following classes implement the List interface? (Select all that apply)",
-      "topic": "Collections",
-      "difficulty": "Medium",
+      "title": "Abstract Classes vs Interfaces",
+      "description": "Which of the following statements are true regarding Abstract Classes and Interfaces in Java 8+? (Select all that apply)",
+      "topic": "OOP",
+      "difficulty": "Hard",
       "marks": 10,
       "negativeMarks": 2.5,
       "options": [
-        { "id": "A", "text": "ArrayList", "correct": true },
-        { "id": "B", "text": "LinkedList", "correct": true },
-        { "id": "C", "text": "HashSet", "correct": false },
-        { "id": "D", "text": "Vector", "correct": true }
+        { "id": "A", "text": "A class can extend only one abstract class, but implement multiple interfaces.", "correct": true },
+        { "id": "B", "text": "Interfaces can have default and static methods.", "correct": true },
+        { "id": "C", "text": "Abstract classes cannot have constructors.", "correct": false },
+        { "id": "D", "text": "A class must implement all methods of an interface unless it is declared abstract.", "correct": true }
       ],
       "multipleCorrect": true
     },
     {
-      "id": "Q-PROG-001",
+      "id": "Q-PROG-003",
       "type": "PROGRAMMING",
-      "title": "Sum of Even Numbers",
-      "description": "Read an integer N, followed by N integers. Print the sum of all even numbers in the list.",
-      "constraints": "1 <= N <= 10^5\n-10^6 <= each number <= 10^6",
-      "inputFormat": "Line 1: Integer N\nLine 2: N space-separated integers",
-      "outputFormat": "A single integer representing the sum of even numbers.",
-      "sampleInput": "5\n1 2 3 4 5",
-      "sampleOutput": "6",
-      "topic": "Arrays",
+      "title": "Count Vowels",
+      "description": "Write a program that reads a single string and prints the total number of vowels (a, e, i, o, u) in it. Ignore case.",
+      "constraints": "1 <= string length <= 1000\nInput will contain only letters (a-z, A-Z).",
+      "inputFormat": "A single word or sentence string.",
+      "outputFormat": "A single integer.",
+      "sampleInput": "Hello World",
+      "sampleOutput": "3",
+      "topic": "Strings",
       "difficulty": "Easy",
       "marks": 15,
       "language": "JAVA",
       "timeLimitMs": 2000,
       "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // TODO: Read N\n        // TODO: Read N numbers and sum the even ones\n        // TODO: Print the result\n    }\n}\n",
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // TODO: Read the string, count vowels (a, e, i, o, u) ignoring case, and print the count\n    }\n}\n",
       "publicTestCases": [
         {
           "id": "P1",
-          "input": "5\n1 2 3 4 5\n",
-          "expectedOutput": "6\n",
+          "input": "Hello World\n",
+          "expectedOutput": "3\n",
           "hidden": false
         },
         {
           "id": "P2",
-          "input": "3\n2 4 6\n",
-          "expectedOutput": "12\n",
+          "input": "Java\n",
+          "expectedOutput": "2\n",
           "hidden": false
         }
       ],
       "hiddenTestCases": [
         {
           "id": "H1",
-          "input": "4\n-2 3 4 -6\n",
-          "expectedOutput": "-4\n",
+          "input": "AEIOU\n",
+          "expectedOutput": "5\n",
           "hidden": true
         },
         {
           "id": "H2",
-          "input": "1\n7\n",
+          "input": "rhythm\n",
           "expectedOutput": "0\n",
           "hidden": true
         }
       ]
     },
     {
-      "id": "Q-PROG-002",
+      "id": "Q-PROG-004",
       "type": "PROGRAMMING",
-      "title": "Reverse a String",
-      "description": "Read a single string from input and print it in reverse.",
-      "constraints": "1 <= length <= 1000",
-      "inputFormat": "A single string (no spaces).",
-      "outputFormat": "The reversed string.",
-      "sampleInput": "hello",
-      "sampleOutput": "olleh",
-      "topic": "Strings",
-      "difficulty": "Easy",
+      "title": "Factorial Calculator",
+      "description": "Read a positive integer N and print its factorial (N!).\nNote: Factorials can get very large very quickly. Use `long` instead of `int`.",
+      "constraints": "1 <= N <= 20",
+      "inputFormat": "A single integer N.",
+      "outputFormat": "A single integer representing N!.",
+      "sampleInput": "5",
+      "sampleOutput": "120",
+      "topic": "Math",
+      "difficulty": "Medium",
       "marks": 15,
       "language": "JAVA",
-      "timeLimitMs": 1000,
-      "memoryLimitMb": 128,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String str = sc.next();\n        // TODO: Print the reverse of str\n    }\n}\n",
+      "timeLimitMs": 2000,
+      "memoryLimitMb": 256,
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Calculate and print n! using a long\n    }\n}\n",
       "publicTestCases": [
         {
           "id": "P1",
-          "input": "hello\n",
-          "expectedOutput": "olleh\n",
+          "input": "5\n",
+          "expectedOutput": "120\n",
           "hidden": false
         },
         {
           "id": "P2",
-          "input": "Java\n",
-          "expectedOutput": "avaJ\n",
+          "input": "1\n",
+          "expectedOutput": "1\n",
           "hidden": false
         }
       ],
       "hiddenTestCases": [
         {
           "id": "H1",
-          "input": "a\n",
-          "expectedOutput": "a\n",
+          "input": "10\n",
+          "expectedOutput": "3628800\n",
           "hidden": true
         },
         {
           "id": "H2",
-          "input": "racecar\n",
-          "expectedOutput": "racecar\n",
+          "input": "20\n",
+          "expectedOutput": "2432902008176640000\n",
           "hidden": true
         }
       ]
