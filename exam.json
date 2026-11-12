@@ -1,155 +1,220 @@
 {
-  "schemaVersion": 1,
-  "examId": "JAVA-BASIC-500",
-  "examName": "Java Basics & Logic",
-  "durationMinutes": 20,
-  "totalMarks": 30,
-  "passingMarks": 15,
-  "negativeMarkingEnabled": false,
-  "negativeMarkFactor": 0,
-  "randomizeQuestions": false,
-  "maxAttempts": 1,
-  "questions": [
+  "id": "Q-MCQ-016",
+  "type": "MCQ",
+  "title": "Integer Division",
+  "description": "What is the value of `7 / 2` in Java when both operands are `int`?",
+  "topic": "Operators",
+  "difficulty": "Easy",
+  "marks": 2,
+  "options": [
+    { "id": "A", "text": "3.5", "correct": false },
+    { "id": "B", "text": "3", "correct": true },
+    { "id": "C", "text": "4", "correct": false },
+    { "id": "D", "text": "Compilation error", "correct": false }
+  ],
+  "multipleCorrect": false
+},
+{
+  "id": "Q-MCQ-017",
+  "type": "MCQ",
+  "title": "String Equality",
+  "description": "Which method should be used to compare the contents of two `String` objects for equality in Java?",
+  "topic": "Strings",
+  "difficulty": "Easy",
+  "marks": 2,
+  "options": [
+    { "id": "A", "text": "==", "correct": false },
+    { "id": "B", "text": ".equals()", "correct": true },
+    { "id": "C", "text": ".compare()", "correct": false },
+    { "id": "D", "text": ".match()", "correct": false }
+  ],
+  "multipleCorrect": false
+},
+{
+  "id": "Q-MCQ-018",
+  "type": "MCQ",
+  "title": "Loop Execution Count",
+  "description": "How many times does the body of `for (int i = 0; i < 5; i++)` execute?",
+  "topic": "Loops",
+  "difficulty": "Easy",
+  "marks": 2,
+  "options": [
+    { "id": "A", "text": "4", "correct": false },
+    { "id": "B", "text": "5", "correct": true },
+    { "id": "C", "text": "6", "correct": false },
+    { "id": "D", "text": "Infinite", "correct": false }
+  ],
+  "multipleCorrect": false
+},
+{
+  "id": "Q-MCQ-019",
+  "type": "MCQ",
+  "title": "Boolean Operators",
+  "description": "What is the result of `true && false || true` in Java?",
+  "topic": "Operators",
+  "difficulty": "Medium",
+  "marks": 2,
+  "options": [
+    { "id": "A", "text": "true", "correct": true },
+    { "id": "B", "text": "false", "correct": false },
+    { "id": "C", "text": "Compilation error", "correct": false },
+    { "id": "D", "text": "Runtime exception", "correct": false }
+  ],
+  "multipleCorrect": false
+},
+{
+  "id": "Q-MCQ-020",
+  "type": "MCQ",
+  "title": "Array Index",
+  "description": "Given `int[] a = new int[5];`, what is the index of the **last** element?",
+  "topic": "Arrays",
+  "difficulty": "Easy",
+  "marks": 2,
+  "options": [
+    { "id": "A", "text": "5", "correct": false },
+    { "id": "B", "text": "4", "correct": true },
+    { "id": "C", "text": "6", "correct": false },
+    { "id": "D", "text": "0", "correct": false }
+  ],
+  "multipleCorrect": false
+},
+{
+  "id": "Q-MCQ-021",
+  "type": "MCQ",
+  "title": "Modulo Operator",
+  "description": "What is the result of `17 % 5` in Java?",
+  "topic": "Operators",
+  "difficulty": "Easy",
+  "marks": 2,
+  "options": [
+    { "id": "A", "text": "3", "correct": false },
+    { "id": "B", "text": "2", "correct": true },
+    { "id": "C", "text": "3.4", "correct": false },
+    { "id": "D", "text": "0", "correct": false }
+  ],
+  "multipleCorrect": false
+},
+{
+  "id": "Q-MCQ-022",
+  "type": "MCQ",
+  "title": "Variable Scope",
+  "description": "Which keyword is used to declare a constant variable in Java whose value cannot be changed?",
+  "topic": "Basics",
+  "difficulty": "Easy",
+  "marks": 2,
+  "options": [
+    { "id": "A", "text": "const", "correct": false },
+    { "id": "B", "text": "final", "correct": true },
+    { "id": "C", "text": "static", "correct": false },
+    { "id": "D", "text": "immutable", "correct": false }
+  ],
+  "multipleCorrect": false
+},
+{
+  "id": "Q-MCQ-023",
+  "type": "MCQ",
+  "title": "Type Casting",
+  "description": "What is the result of `(int) 9.99` in Java?",
+  "topic": "Basics",
+  "difficulty": "Medium",
+  "marks": 2,
+  "options": [
+    { "id": "A", "text": "10", "correct": false },
+    { "id": "B", "text": "9", "correct": true },
+    { "id": "C", "text": "9.99", "correct": false },
+    { "id": "D", "text": "Compilation error", "correct": false }
+  ],
+  "multipleCorrect": false
+},
+{
+  "id": "Q-PROG-016",
+  "type": "PROGRAMMING",
+  "title": "Factorial of N",
+  "description": "Read a positive integer N and print N! (N factorial), which is the product 1 × 2 × 3 × ... × N.",
+  "constraints": "1 <= N <= 12 (result fits in a 32-bit int).",
+  "inputFormat": "A single integer N.",
+  "outputFormat": "A single integer — the value of N!.",
+  "sampleInput": "5",
+  "sampleOutput": "120",
+  "topic": "Loops",
+  "difficulty": "Easy",
+  "marks": 10,
+  "language": "JAVA",
+  "timeLimitMs": 1500,
+  "memoryLimitMb": 256,
+  "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Compute and print n factorial\n    }\n}\n",
+  "publicTestCases": [
     {
-      "id": "Q-MCQ-009",
-      "type": "MCQ",
-      "title": "Printing to Console",
-      "description": "Which of the following is the correct way to print 'Hello' to the console in Java?",
-      "topic": "Basics",
-      "difficulty": "Easy",
-      "marks": 2,
-      "options": [
-        { "id": "A", "text": "print(\"Hello\");", "correct": false },
-        { "id": "B", "text": "System.out.println(\"Hello\");", "correct": true },
-        { "id": "C", "text": "Console.log(\"Hello\");", "correct": false },
-        { "id": "D", "text": "echo \"Hello\";", "correct": false }
-      ],
-      "multipleCorrect": false
+      "id": "P1",
+      "input": "5\n",
+      "expectedOutput": "120\n",
+      "hidden": false
     },
     {
-      "id": "Q-MCQ-010",
-      "type": "MCQ",
-      "title": "Variable Types",
-      "description": "Which data type is used to store a single character, like 'A', in Java?",
-      "topic": "Basics",
-      "difficulty": "Easy",
-      "marks": 2,
-      "options": [
-        { "id": "A", "text": "String", "correct": false },
-        { "id": "B", "text": "int", "correct": false },
-        { "id": "C", "text": "char", "correct": true },
-        { "id": "D", "text": "boolean", "correct": false }
-      ],
-      "multipleCorrect": false
+      "id": "P2",
+      "input": "1\n",
+      "expectedOutput": "1\n",
+      "hidden": false
+    }
+  ],
+  "hiddenTestCases": [
+    {
+      "id": "H1",
+      "input": "0\n",
+      "expectedOutput": "1\n",
+      "hidden": true
     },
     {
-      "id": "Q-MULTI-005",
-      "type": "MULTI_SELECT",
-      "title": "Basic Arithmetic",
-      "description": "Which of the following symbols are valid arithmetic operators in Java? (Select all that apply)",
-      "topic": "Operators",
-      "difficulty": "Easy",
-      "marks": 6,
-      "options": [
-        { "id": "A", "text": "+", "correct": true },
-        { "id": "B", "text": "-", "correct": true },
-        { "id": "C", "text": "*", "correct": true },
-        { "id": "D", "text": "x", "correct": false },
-        { "id": "E", "text": "/", "correct": true }
-      ],
-      "multipleCorrect": true
+      "id": "H2",
+      "input": "10\n",
+      "expectedOutput": "3628800\n",
+      "hidden": true
+    }
+  ]
+},
+{
+  "id": "Q-PROG-017",
+  "type": "PROGRAMMING",
+  "title": "Sum of Digits",
+  "description": "Read a positive integer N and print the sum of its digits.",
+  "constraints": "1 <= N <= 1,000,000,000",
+  "inputFormat": "A single integer N.",
+  "outputFormat": "A single integer — the sum of the digits of N.",
+  "sampleInput": "1234",
+  "sampleOutput": "10",
+  "topic": "Loops",
+  "difficulty": "Medium",
+  "marks": 10,
+  "language": "JAVA",
+  "timeLimitMs": 1500,
+  "memoryLimitMb": 256,
+  "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Compute and print the sum of the digits of n\n    }\n}\n",
+  "publicTestCases": [
+    {
+      "id": "P1",
+      "input": "1234\n",
+      "expectedOutput": "10\n",
+      "hidden": false
     },
     {
-      "id": "Q-PROG-009",
-      "type": "PROGRAMMING",
-      "title": "Add Two Numbers",
-      "description": "Read two integers from input and print their sum.",
-      "constraints": "Both numbers will be between -1000 and 1000.",
-      "inputFormat": "Two lines. Each contains a single integer.",
-      "outputFormat": "A single integer representing the sum.",
-      "sampleInput": "5\n3",
-      "sampleOutput": "8",
-      "topic": "Math",
-      "difficulty": "Easy",
-      "marks": 10,
-      "language": "JAVA",
-      "timeLimitMs": 2000,
-      "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // TODO: Read two integers and print their sum\n    }\n}\n",
-      "publicTestCases": [
-        {
-          "id": "P1",
-          "input": "5\n3\n",
-          "expectedOutput": "8\n",
-          "hidden": false
-        },
-        {
-          "id": "P2",
-          "input": "10\n20\n",
-          "expectedOutput": "30\n",
-          "hidden": false
-        }
-      ],
-      "hiddenTestCases": [
-        {
-          "id": "H1",
-          "input": "-5\n5\n",
-          "expectedOutput": "0\n",
-          "hidden": true
-        },
-        {
-          "id": "H2",
-          "input": "0\n0\n",
-          "expectedOutput": "0\n",
-          "hidden": true
-        }
-      ]
+      "id": "P2",
+      "input": "9\n",
+      "expectedOutput": "9\n",
+      "hidden": false
+    }
+  ],
+  "hiddenTestCases": [
+    {
+      "id": "H1",
+      "input": "1000\n",
+      "expectedOutput": "1\n",
+      "hidden": true
     },
     {
-      "id": "Q-PROG-010",
-      "type": "PROGRAMMING",
-      "title": "Even or Odd",
-      "description": "Read a single integer N. Print 'Even' if the number is even, and 'Odd' if the number is odd.",
-      "constraints": "1 <= N <= 10000",
-      "inputFormat": "A single integer N.",
-      "outputFormat": "The word 'Even' or 'Odd'.",
-      "sampleInput": "4",
-      "sampleOutput": "Even",
-      "topic": "Logic",
-      "difficulty": "Easy",
-      "marks": 10,
-      "language": "JAVA",
-      "timeLimitMs": 1000,
-      "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Check if n is even or odd, and print the result\n    }\n}\n",
-      "publicTestCases": [
-        {
-          "id": "P1",
-          "input": "4\n",
-          "expectedOutput": "Even\n",
-          "hidden": false
-        },
-        {
-          "id": "P2",
-          "input": "7\n",
-          "expectedOutput": "Odd\n",
-          "hidden": false
-        }
-      ],
-      "hiddenTestCases": [
-        {
-          "id": "H1",
-          "input": "0\n",
-          "expectedOutput": "Even\n",
-          "hidden": true
-        },
-        {
-          "id": "H2",
-          "input": "999\n",
-          "expectedOutput": "Odd\n",
-          "hidden": true
-        }
-      ]
+      "id": "H2",
+      "input": "999999999\n",
+      "expectedOutput": "81\n",
+      "hidden": true
     }
   ]
 }
