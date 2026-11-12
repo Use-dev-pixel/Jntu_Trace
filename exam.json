@@ -1,157 +1,157 @@
 {
   "schemaVersion": 1,
-  "examId": "JAVA-ALGO-300",
-  "examName": "Java Algorithms & Arrays",
-  "durationMinutes": 45,
-  "totalMarks": 60,
-  "passingMarks": 30,
+  "examId": "JAVA-STRINGS-400",
+  "examName": "Java Strings & Recursion",
+  "durationMinutes": 40,
+  "totalMarks": 55,
+  "passingMarks": 27,
   "negativeMarkingEnabled": true,
   "negativeMarkFactor": 0.25,
-  "randomizeQuestions": true,
+  "randomizeQuestions": false,
   "maxAttempts": 1,
   "questions": [
     {
-      "id": "Q-MCQ-005",
+      "id": "Q-MCQ-007",
       "type": "MCQ",
-      "title": "Loop Control",
-      "description": "In Java, which loop is guaranteed to execute its body at least once, even if the condition is initially false?",
-      "topic": "Loops",
+      "title": "String Comparison",
+      "description": "Which method should you use to compare the actual contents of two Strings in Java (e.g., to check if `str1` is equal to `str2`)?",
+      "topic": "Strings",
       "difficulty": "Easy",
       "marks": 5,
       "negativeMarks": 1.25,
-      "explanation": "A do-while loop checks its condition after executing the block, guaranteeing at least one execution.",
+      "explanation": "`==` compares memory references, whereas `.equals()` compares the actual character data.",
       "options": [
-        { "id": "A", "text": "for loop", "correct": false },
-        { "id": "B", "text": "while loop", "correct": false },
-        { "id": "C", "text": "do-while loop", "correct": true },
-        { "id": "D", "text": "enhanced for loop", "correct": false }
+        { "id": "A", "text": "str1 == str2", "correct": false },
+        { "id": "B", "text": "str1.equals(str2)", "correct": true },
+        { "id": "C", "text": "str1.compare(str2)", "correct": false },
+        { "id": "D", "text": "str1.match(str2)", "correct": false }
       ],
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-006",
+      "id": "Q-MCQ-008",
       "type": "MCQ",
-      "title": "Array Bounds",
-      "description": "If an array is declared as `int[] arr = new int[5];`, what happens if you try to access `arr[5]`?",
-      "topic": "Arrays",
+      "title": "Recursion Base Case",
+      "description": "What happens if a recursive function in Java does not have a base case (terminating condition)?",
+      "topic": "Recursion",
       "difficulty": "Medium",
       "marks": 5,
       "negativeMarks": 1.25,
-      "explanation": "Array indices are zero-based. A size of 5 means valid indices are 0 through 4. Accessing index 5 throws an ArrayIndexOutOfBoundsException.",
+      "explanation": "Without a base case, the function will call itself indefinitely until the JVM runs out of stack space, throwing a StackOverflowError.",
       "options": [
-        { "id": "A", "text": "It returns 0.", "correct": false },
-        { "id": "B", "text": "It throws an ArrayIndexOutOfBoundsException.", "correct": true },
+        { "id": "A", "text": "The JVM automatically detects the loop and exits.", "correct": false },
+        { "id": "B", "text": "It throws a StackOverflowError.", "correct": true },
         { "id": "C", "text": "It returns null.", "correct": false },
-        { "id": "D", "text": "The array automatically expands to size 6.", "correct": false }
+        { "id": "D", "text": "The program compiles but does nothing.", "correct": false }
       ],
       "multipleCorrect": false
     },
     {
-      "id": "Q-MULTI-003",
+      "id": "Q-MULTI-004",
       "type": "MULTI_SELECT",
-      "title": "Java Data Types",
-      "description": "Which of the following are primitive data types in Java? (Select all that apply)",
-      "topic": "Basics",
+      "title": "String Methods",
+      "description": "Which of the following are valid methods on a String object in Java? (Select all that apply)",
+      "topic": "Strings",
       "difficulty": "Medium",
       "marks": 10,
       "negativeMarks": 2.5,
       "options": [
-        { "id": "A", "text": "int", "correct": true },
-        { "id": "B", "text": "String", "correct": false },
-        { "id": "C", "text": "boolean", "correct": true },
-        { "id": "D", "text": "double", "correct": true },
-        { "id": "E", "text": "Array", "correct": false }
+        { "id": "A", "text": "length()", "correct": true },
+        { "id": "B", "text": "substring(int, int)", "correct": true },
+        { "id": "C", "text": "reverse()", "correct": false },
+        { "id": "D", "text": "toUpperCase()", "correct": true },
+        { "id": "E", "text": "push(char)", "correct": false }
       ],
       "multipleCorrect": true
     },
     {
-      "id": "Q-PROG-005",
+      "id": "Q-PROG-007",
       "type": "PROGRAMMING",
-      "title": "Find the Maximum",
-      "description": "Read an integer N, followed by N integers. Print the largest number in the list.",
-      "constraints": "1 <= N <= 10^5\n-10^6 <= each number <= 10^6",
-      "inputFormat": "Line 1: Integer N\nLine 2: N space-separated integers",
-      "outputFormat": "A single integer representing the maximum value.",
-      "sampleInput": "5\n1 9 3 4 5",
-      "sampleOutput": "9",
-      "topic": "Arrays",
-      "difficulty": "Easy",
+      "title": "Check Palindrome",
+      "description": "Read a single word and print `true` if it is a palindrome, or `false` if it is not.\nA palindrome reads the same forwards and backwards.",
+      "constraints": "1 <= length <= 1000\nThe input will contain only lowercase letters.",
+      "inputFormat": "A single string.",
+      "outputFormat": "`true` or `false`.",
+      "sampleInput": "racecar",
+      "sampleOutput": "true",
+      "topic": "Strings",
+      "difficulty": "Medium",
       "marks": 15,
       "language": "JAVA",
       "timeLimitMs": 2000,
       "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Read N numbers, find the maximum, and print it\n    }\n}\n",
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String str = sc.next();\n        // TODO: Print true if palindrome, false otherwise\n    }\n}\n",
       "publicTestCases": [
         {
           "id": "P1",
-          "input": "5\n1 9 3 4 5\n",
-          "expectedOutput": "9\n",
+          "input": "racecar\n",
+          "expectedOutput": "true\n",
           "hidden": false
         },
         {
           "id": "P2",
-          "input": "3\n-5 -2 -9\n",
-          "expectedOutput": "-2\n",
+          "input": "hello\n",
+          "expectedOutput": "false\n",
           "hidden": false
         }
       ],
       "hiddenTestCases": [
         {
           "id": "H1",
-          "input": "1\n42\n",
-          "expectedOutput": "42\n",
+          "input": "a\n",
+          "expectedOutput": "true\n",
           "hidden": true
         },
         {
           "id": "H2",
-          "input": "4\n100 200 300 50\n",
-          "expectedOutput": "300\n",
+          "input": "abccba\n",
+          "expectedOutput": "true\n",
           "hidden": true
         }
       ]
     },
     {
-      "id": "Q-PROG-006",
+      "id": "Q-PROG-008",
       "type": "PROGRAMMING",
-      "title": "Fibonacci Sequence",
-      "description": "Write a program that prints the first N numbers of the Fibonacci sequence separated by spaces.\nThe sequence starts with 0 and 1.",
-      "constraints": "1 <= N <= 50",
-      "inputFormat": "A single integer N.",
-      "outputFormat": "N space-separated integers.",
-      "sampleInput": "5",
-      "sampleOutput": "0 1 1 2 3",
-      "topic": "Algorithms",
-      "difficulty": "Medium",
-      "marks": 15,
+      "title": "Bubble Sort",
+      "description": "Read an integer N, followed by N integers. Sort the array in ascending order using Bubble Sort and print the sorted array.",
+      "constraints": "1 <= N <= 1000\n-10^6 <= each number <= 10^6",
+      "inputFormat": "Line 1: Integer N\nLine 2: N space-separated integers",
+      "outputFormat": "N space-separated sorted integers.",
+      "sampleInput": "5\n5 3 8 1 2",
+      "sampleOutput": "1 2 3 5 8",
+      "topic": "Sorting",
+      "difficulty": "Hard",
+      "marks": 20,
       "language": "JAVA",
       "timeLimitMs": 2000,
       "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Print the first N Fibonacci numbers separated by spaces\n    }\n}\n",
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int[] arr = new int[n];\n        for (int i = 0; i < n; i++) {\n            arr[i] = sc.nextInt();\n        }\n        // TODO: Sort using bubble sort and print the array\n    }\n}\n",
       "publicTestCases": [
         {
           "id": "P1",
-          "input": "5\n",
-          "expectedOutput": "0 1 1 2 3\n",
+          "input": "5\n5 3 8 1 2\n",
+          "expectedOutput": "1 2 3 5 8\n",
           "hidden": false
         },
         {
           "id": "P2",
-          "input": "1\n",
-          "expectedOutput": "0\n",
+          "input": "3\n9 9 1\n",
+          "expectedOutput": "1 9 9\n",
           "hidden": false
         }
       ],
       "hiddenTestCases": [
         {
           "id": "H1",
-          "input": "8\n",
-          "expectedOutput": "0 1 1 2 3 5 8 13\n",
+          "input": "4\n-5 0 5 -10\n",
+          "expectedOutput": "-10 -5 0 5\n",
           "hidden": true
         },
         {
           "id": "H2",
-          "input": "2\n",
-          "expectedOutput": "0 1\n",
+          "input": "1\n42\n",
+          "expectedOutput": "42\n",
           "hidden": true
         }
       ]
