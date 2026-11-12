@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "examId": "JAVA-BASIC-999",
+  "examId": "JAVA-CORE-1001",
   "examName": "Java Basics & Logic",
   "durationMinutes": 20,
   "totalMarks": 66,
@@ -11,7 +11,7 @@
   "maxAttempts": 1,
   "questions": [
     {
-      "id": "Q-MCQ-009",
+      "id": "Q-MCQ-101",
       "type": "MCQ",
       "title": "Printing to Console",
       "description": "Which of the following is the correct way to print 'Hello' to the console in Java?",
@@ -27,7 +27,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-010",
+      "id": "Q-MCQ-102",
       "type": "MCQ",
       "title": "Variable Types",
       "description": "Which data type is used to store a single character, like 'A', in Java?",
@@ -43,7 +43,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-011",
+      "id": "Q-MCQ-103",
       "type": "MCQ",
       "title": "Java Main Method",
       "description": "What is the correct signature of the entry-point method in a Java application?",
@@ -59,7 +59,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-012",
+      "id": "Q-MCQ-104",
       "type": "MCQ",
       "title": "String Concatenation",
       "description": "What is the output of:  System.out.println(1 + 2 + \"3\");",
@@ -75,7 +75,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-013",
+      "id": "Q-MCQ-105",
       "type": "MCQ",
       "title": "Integer Division",
       "description": "What is the value of `7 / 2` in Java when both operands are `int`?",
@@ -91,7 +91,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-014",
+      "id": "Q-MCQ-106",
       "type": "MCQ",
       "title": "String Equality",
       "description": "Which method should be used to compare the contents of two `String` objects for equality in Java?",
@@ -107,7 +107,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-015",
+      "id": "Q-MCQ-107",
       "type": "MCQ",
       "title": "Loop Execution Count",
       "description": "How many times does the body of `for (int i = 0; i < 5; i++)` execute?",
@@ -123,7 +123,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-016",
+      "id": "Q-MCQ-108",
       "type": "MCQ",
       "title": "Modulo Operator",
       "description": "What is the result of `17 % 5` in Java?",
@@ -139,7 +139,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-PROG-009",
+      "id": "Q-PROG-101",
       "type": "PROGRAMMING",
       "title": "Add Two Numbers",
       "description": "Read two integers from input and print their sum.",
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "id": "Q-PROG-010",
+      "id": "Q-PROG-102",
       "type": "PROGRAMMING",
       "title": "Even or Odd",
       "description": "Read a single integer N. Print 'Even' if the number is even, and 'Odd' if the number is odd.",
