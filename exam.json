@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "examId": "JAVA-MASTER-100",
+  "examName": "Java Mastery Test",
+  "durationMinutes": 45,
+  "totalMarks": 50,
+  "passingMarks": 25,
+  "negativeMarkingEnabled": true,
+  "negativeMarkFactor": 0.25,
+  "randomizeQuestions": false,
+  "maxAttempts": 3,
+  "questions": [
+    {
+      "id": "Q-MCQ-001",
+      "type": "MCQ",
+      "title": "String Immutability",
+      "description": "Which of the following is true about Strings in Java?",
+      "topic": "Strings",
+      "difficulty": "Easy",
+      "marks": 5,
+      "negativeMarks": 1.25,
+      "explanation": "Strings are immutable. Once created, their values cannot be changed.",
+      "options": [
+        { "id": "A", "text": "Strings are mutable and can be changed in place.", "correct": false },
+        { "id": "B", "text": "Strings are immutable.", "correct": true },
+        { "id": "C", "text": "Strings can only hold numbers.", "correct": false },
+        { "id": "D", "text": "Strings are primitive data types.", "correct": false }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "Q-MCQ-002",
+      "type": "MCQ",
+      "title": "Default values",
+      "description": "What is the default value of an uninitialized boolean instance variable in Java?",
+      "topic": "Basics",
+      "difficulty": "Medium",
+      "marks": 5,
+      "negativeMarks": 1.25,
+      "options": [
+        { "id": "A", "text": "true", "correct": false },
+        { "id": "B", "text": "false", "correct": true },
+        { "id": "C", "text": "null", "correct": false },
+        { "id": "D", "text": "0", "correct": false }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "Q-MULTI-001",
+      "type": "MULTI_SELECT",
+      "title": "Java Collections Framework",
+      "description": "Which of the following classes implement the List interface? (Select all that apply)",
+      "topic": "Collections",
+      "difficulty": "Medium",
+      "marks": 10,
+      "negativeMarks": 2.5,
+      "options": [
+        { "id": "A", "text": "ArrayList", "correct": true },
+        { "id": "B", "text": "LinkedList", "correct": true },
+        { "id": "C", "text": "HashSet", "correct": false },
+        { "id": "D", "text": "Vector", "correct": true }
+      ],
+      "multipleCorrect": true
+    },
+    {
+      "id": "Q-PROG-001",
+      "type": "PROGRAMMING",
+      "title": "Sum of Even Numbers",
+      "description": "Read an integer N, followed by N integers. Print the sum of all even numbers in the list.",
+      "constraints": "1 <= N <= 10^5\n-10^6 <= each number <= 10^6",
+      "inputFormat": "Line 1: Integer N\nLine 2: N space-separated integers",
+      "outputFormat": "A single integer representing the sum of even numbers.",
+      "sampleInput": "5\n1 2 3 4 5",
+      "sampleOutput": "6",
+      "topic": "Arrays",
+      "difficulty": "Easy",
+      "marks": 15,
+      "language": "JAVA",
+      "timeLimitMs": 2000,
+      "memoryLimitMb": 256,
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // TODO: Read N\n        // TODO: Read N numbers and sum the even ones\n        // TODO: Print the result\n    }\n}\n",
+      "publicTestCases": [
+        {
+          "id": "P1",
+          "input": "5\n1 2 3 4 5\n",
+          "expectedOutput": "6\n",
+          "hidden": false
+        },
+        {
+          "id": "P2",
+          "input": "3\n2 4 6\n",
+          "expectedOutput": "12\n",
+          "hidden": false
+        }
+      ],
+      "hiddenTestCases": [
+        {
+          "id": "H1",
+          "input": "4\n-2 3 4 -6\n",
+          "expectedOutput": "-4\n",
+          "hidden": true
+        },
+        {
+          "id": "H2",
+          "input": "1\n7\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "Q-PROG-002",
+      "type": "PROGRAMMING",
+      "title": "Reverse a String",
+      "description": "Read a single string from input and print it in reverse.",
+      "constraints": "1 <= length <= 1000",
+      "inputFormat": "A single string (no spaces).",
+      "outputFormat": "The reversed string.",
+      "sampleInput": "hello",
+      "sampleOutput": "olleh",
+      "topic": "Strings",
+      "difficulty": "Easy",
+      "marks": 15,
+      "language": "JAVA",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String str = sc.next();\n        // TODO: Print the reverse of str\n    }\n}\n",
+      "publicTestCases": [
+        {
+          "id": "P1",
+          "input": "hello\n",
+          "expectedOutput": "olleh\n",
+          "hidden": false
+        },
+        {
+          "id": "P2",
+          "input": "Java\n",
+          "expectedOutput": "avaJ\n",
+          "hidden": false
+        }
+      ],
+      "hiddenTestCases": [
+        {
+          "id": "H1",
+          "input": "a\n",
+          "expectedOutput": "a\n",
+          "hidden": true
+        },
+        {
+          "id": "H2",
+          "input": "racecar\n",
+          "expectedOutput": "racecar\n",
+          "hidden": true
+        }
+      ]
+    }
+  ]
+}
