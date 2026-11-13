@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "examId": "JAVA-CORE-1001",
+  "examId": "EXAM-2026-JAVA-0007",
   "examName": "Java Basics & Logic",
   "durationMinutes": 20,
   "totalMarks": 66,
@@ -11,7 +11,7 @@
   "maxAttempts": 1,
   "questions": [
     {
-      "id": "Q-MCQ-101",
+      "id": "JAV-001",
       "type": "MCQ",
       "title": "Printing to Console",
       "description": "Which of the following is the correct way to print 'Hello' to the console in Java?",
@@ -27,7 +27,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-102",
+      "id": "JAV-002",
       "type": "MCQ",
       "title": "Variable Types",
       "description": "Which data type is used to store a single character, like 'A', in Java?",
@@ -43,7 +43,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-103",
+      "id": "JAV-003",
       "type": "MCQ",
       "title": "Java Main Method",
       "description": "What is the correct signature of the entry-point method in a Java application?",
@@ -59,7 +59,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-104",
+      "id": "JAV-004",
       "type": "MCQ",
       "title": "String Concatenation",
       "description": "What is the output of:  System.out.println(1 + 2 + \"3\");",
@@ -75,7 +75,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-105",
+      "id": "JAV-005",
       "type": "MCQ",
       "title": "Integer Division",
       "description": "What is the value of `7 / 2` in Java when both operands are `int`?",
@@ -91,7 +91,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-106",
+      "id": "JAV-006",
       "type": "MCQ",
       "title": "String Equality",
       "description": "Which method should be used to compare the contents of two `String` objects for equality in Java?",
@@ -107,7 +107,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-107",
+      "id": "JAV-007",
       "type": "MCQ",
       "title": "Loop Execution Count",
       "description": "How many times does the body of `for (int i = 0; i < 5; i++)` execute?",
@@ -123,7 +123,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-MCQ-108",
+      "id": "JAV-008",
       "type": "MCQ",
       "title": "Modulo Operator",
       "description": "What is the result of `17 % 5` in Java?",
@@ -139,7 +139,7 @@
       "multipleCorrect": false
     },
     {
-      "id": "Q-PROG-101",
+      "id": "JAV-009",
       "type": "PROGRAMMING",
       "title": "Add Two Numbers",
       "description": "Read two integers from input and print their sum.",
@@ -157,13 +157,13 @@
       "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // TODO: Read two integers and print their sum\n    }\n}\n",
       "publicTestCases": [
         {
-          "id": "P1",
+          "id": "JAV-009-PUB-001",
           "input": "5\n3\n",
           "expectedOutput": "8\n",
           "hidden": false
         },
         {
-          "id": "P2",
+          "id": "JAV-009-PUB-002",
           "input": "10\n20\n",
           "expectedOutput": "30\n",
           "hidden": false
@@ -171,13 +171,13 @@
       ],
       "hiddenTestCases": [
         {
-          "id": "H1",
+          "id": "JAV-009-HID-001",
           "input": "-5\n5\n",
           "expectedOutput": "0\n",
           "hidden": true
         },
         {
-          "id": "H2",
+          "id": "JAV-009-HID-002",
           "input": "0\n0\n",
           "expectedOutput": "0\n",
           "hidden": true
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "id": "Q-PROG-102",
+      "id": "JAV-010",
       "type": "PROGRAMMING",
       "title": "Even or Odd",
       "description": "Read a single integer N. Print 'Even' if the number is even, and 'Odd' if the number is odd.",
@@ -203,13 +203,13 @@
       "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Check if n is even or odd, and print the result\n    }\n}\n",
       "publicTestCases": [
         {
-          "id": "P1",
+          "id": "JAV-010-PUB-001",
           "input": "4\n",
           "expectedOutput": "Even\n",
           "hidden": false
         },
         {
-          "id": "P2",
+          "id": "JAV-010-PUB-002",
           "input": "7\n",
           "expectedOutput": "Odd\n",
           "hidden": false
@@ -217,13 +217,13 @@
       ],
       "hiddenTestCases": [
         {
-          "id": "H1",
+          "id": "JAV-010-HID-001",
           "input": "0\n",
           "expectedOutput": "Even\n",
           "hidden": true
         },
         {
-          "id": "H2",
+          "id": "JAV-010-HID-002",
           "input": "999\n",
           "expectedOutput": "Odd\n",
           "hidden": true
