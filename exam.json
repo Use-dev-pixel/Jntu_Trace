@@ -3,7 +3,7 @@
   "examId": "44a2c199-70a9-4ed6-8919-dbf984459671",
   "examName": "Java Strings & Logic Test",
   "durationMinutes": 30,
-  "totalMarks": 20,
+  "totalMarks": 22,
   "passingMarks": 0,
   "negativeMarkingEnabled": false,
   "negativeMarkFactor": 0.0,
@@ -81,6 +81,38 @@
           "hidden": true
         }
       ]
+    },
+    {
+      "id": "NEW-71e8f54d",
+      "type": "MCQ",
+      "title": "Demo",
+      "description": "aSasaS",
+      "topic": "Strings",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "AS",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "QWE4",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "QWEQ",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "QWEW",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": false
     }
   ]
 }
