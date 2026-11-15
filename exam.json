@@ -9,8 +9,8 @@
   "negativeMarkFactor": 0,
   "randomizeQuestions": false,
   "maxAttempts": 1,
-  "startTime": "2024-05-20T10:00:00",
-  "endTime": "2024-05-20T14:00:00",
+  "startTime": "2026-11-15T00:00:00",
+  "endTime": "2026-11-15T23:59:59",
   "questions": [
     {
       "id": "JAV-STR-E-0001",
