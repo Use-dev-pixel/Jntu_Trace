@@ -1,231 +1,185 @@
 {
   "schemaVersion": 1,
-  "examId": "a7f3c9e2-4b1d-4f8a-9c6e-2d5b8a1f0e73",
-  "examName": "Java Basics & Logic",
-  "durationMinutes": 20,
-  "totalMarks": 66,
-  "passingMarks": 33,
+  "examId": "b8f4d0e3-5c2e-4a9b-8d7f-3e6c9b2a1f84",
+  "examName": "Java Strings & Logic Test",
+  "durationMinutes": 30,
+  "totalMarks": 50,
+  "passingMarks": 25,
   "negativeMarkingEnabled": false,
   "negativeMarkFactor": 0,
   "randomizeQuestions": false,
   "maxAttempts": 1,
+  "startTime": "2024-05-20T10:00:00",
+  "endTime": "2024-05-20T14:00:00",
   "questions": [
     {
-      "id": "JAV-BAS-E-0001",
+      "id": "JAV-STR-E-0001",
       "type": "MCQ",
-      "title": "Printing to Console",
-      "description": "Which of the following is the correct way to print 'Hello' to the console in Java?",
-      "topic": "Basics",
-      "difficulty": "Easy",
-      "marks": 2,
-      "options": [
-        { "id": "A", "text": "print(\"Hello\");", "correct": false },
-        { "id": "B", "text": "System.out.println(\"Hello\");", "correct": true },
-        { "id": "C", "text": "Console.log(\"Hello\");", "correct": false },
-        { "id": "D", "text": "echo \"Hello\";", "correct": false }
-      ],
-      "multipleCorrect": false
-    },
-    {
-      "id": "JAV-BAS-E-0002",
-      "type": "MCQ",
-      "title": "Variable Types",
-      "description": "Which data type is used to store a single character, like 'A', in Java?",
-      "topic": "Basics",
-      "difficulty": "Easy",
-      "marks": 2,
-      "options": [
-        { "id": "A", "text": "String", "correct": false },
-        { "id": "B", "text": "int", "correct": false },
-        { "id": "C", "text": "char", "correct": true },
-        { "id": "D", "text": "boolean", "correct": false }
-      ],
-      "multipleCorrect": false
-    },
-    {
-      "id": "JAV-BAS-E-0003",
-      "type": "MCQ",
-      "title": "Java Main Method",
-      "description": "What is the correct signature of the entry-point method in a Java application?",
-      "topic": "Basics",
-      "difficulty": "Easy",
-      "marks": 2,
-      "options": [
-        { "id": "A", "text": "public void main(String args)", "correct": false },
-        { "id": "B", "text": "public static void main(String[] args)", "correct": true },
-        { "id": "C", "text": "static int main(String[] args)", "correct": false },
-        { "id": "D", "text": "void main()", "correct": false }
-      ],
-      "multipleCorrect": false
-    },
-    {
-      "id": "JAV-OPE-M-0004",
-      "type": "MCQ",
-      "title": "String Concatenation",
-      "description": "What is the output of:  System.out.println(1 + 2 + \"3\");",
-      "topic": "Operators",
-      "difficulty": "Medium",
-      "marks": 2,
-      "options": [
-        { "id": "A", "text": "123", "correct": false },
-        { "id": "B", "text": "33", "correct": true },
-        { "id": "C", "text": "6", "correct": false },
-        { "id": "D", "text": "Compilation error", "correct": false }
-      ],
-      "multipleCorrect": false
-    },
-    {
-      "id": "JAV-OPE-E-0005",
-      "type": "MCQ",
-      "title": "Integer Division",
-      "description": "What is the value of `7 / 2` in Java when both operands are `int`?",
-      "topic": "Operators",
-      "difficulty": "Easy",
-      "marks": 2,
-      "options": [
-        { "id": "A", "text": "3.5", "correct": false },
-        { "id": "B", "text": "3", "correct": true },
-        { "id": "C", "text": "4", "correct": false },
-        { "id": "D", "text": "Compilation error", "correct": false }
-      ],
-      "multipleCorrect": false
-    },
-    {
-      "id": "JAV-STR-E-0006",
-      "type": "MCQ",
-      "title": "String Equality",
-      "description": "Which method should be used to compare the contents of two `String` objects for equality in Java?",
+      "title": "String Immutability",
+      "description": "Which of the following statements about Strings in Java is true?",
       "topic": "Strings",
       "difficulty": "Easy",
       "marks": 2,
       "options": [
-        { "id": "A", "text": "==", "correct": false },
-        { "id": "B", "text": ".equals()", "correct": true },
-        { "id": "C", "text": ".compare()", "correct": false },
-        { "id": "D", "text": ".match()", "correct": false }
+        { "id": "A", "text": "Strings are mutable.", "correct": false },
+        { "id": "B", "text": "Strings are immutable.", "correct": true },
+        { "id": "C", "text": "Strings can only hold numbers.", "correct": false },
+        { "id": "D", "text": "Strings must be declared with the 'new' keyword.", "correct": false }
       ],
       "multipleCorrect": false
     },
     {
-      "id": "JAV-LOO-E-0007",
+      "id": "JAV-STR-M-0002",
       "type": "MCQ",
-      "title": "Loop Execution Count",
-      "description": "How many times does the body of `for (int i = 0; i < 5; i++)` execute?",
-      "topic": "Loops",
+      "title": "String length()",
+      "description": "What is the correct way to find the number of characters in a String 'str'?",
+      "topic": "Strings",
+      "difficulty": "Medium",
+      "marks": 2,
+      "options": [
+        { "id": "A", "text": "str.length", "correct": false },
+        { "id": "B", "text": "str.length()", "correct": true },
+        { "id": "C", "text": "str.size()", "correct": false },
+        { "id": "D", "text": "str.count()", "correct": false }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "JAV-STR-E-0003",
+      "type": "MCQ",
+      "title": "String Indexing",
+      "description": "What is the index of the last character in a String?",
+      "topic": "Strings",
       "difficulty": "Easy",
       "marks": 2,
       "options": [
-        { "id": "A", "text": "4", "correct": false },
-        { "id": "B", "text": "5", "correct": true },
-        { "id": "C", "text": "6", "correct": false },
-        { "id": "D", "text": "Infinite", "correct": false }
+        { "id": "A", "text": "str.length()", "correct": false },
+        { "id": "B", "text": "str.length() - 1", "correct": true },
+        { "id": "C", "text": "0", "correct": false },
+        { "id": "D", "text": "1", "correct": false }
       ],
       "multipleCorrect": false
     },
     {
-      "id": "JAV-OPE-E-0008",
+      "id": "JAV-STR-M-0004",
       "type": "MCQ",
-      "title": "Modulo Operator",
-      "description": "What is the result of `17 % 5` in Java?",
-      "topic": "Operators",
-      "difficulty": "Easy",
+      "title": "String Concatenation",
+      "description": "What is the output of: System.out.println(\"Java\" + 10 + 20);",
+      "topic": "Strings",
+      "difficulty": "Medium",
       "marks": 2,
       "options": [
-        { "id": "A", "text": "3", "correct": false },
-        { "id": "B", "text": "2", "correct": true },
-        { "id": "C", "text": "3.4", "correct": false },
-        { "id": "D", "text": "0", "correct": false }
+        { "id": "A", "text": "Java30", "correct": true },
+        { "id": "B", "text": "Java1020", "correct": false },
+        { "id": "C", "text": "30Java", "correct": false },
+        { "id": "D", "text": "Compilation Error", "correct": false }
       ],
       "multipleCorrect": false
     },
     {
-      "id": "JAV-MAT-E-0009",
+      "id": "JAV-STR-M-0005",
+      "type": "MCQ",
+      "title": "String Comparison",
+      "description": "Which method compares two strings ignoring case sensitivity?",
+      "topic": "Strings",
+      "difficulty": "Medium",
+      "marks": 2,
+      "options": [
+        { "id": "A", "text": "equals()", "correct": false },
+        { "id": "B", "text": "equalsIgnoreCase()", "correct": true },
+        { "id": "C", "text": "compareTo()", "correct": false },
+        { "id": "D", "text": "matchCase()", "correct": false }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "JAV-PRG-E-0006",
       "type": "PROGRAMMING",
-      "title": "Add Two Numbers",
-      "description": "Read two integers from input and print their sum.",
-      "constraints": "Both numbers will be between -1000 and 1000.",
-      "inputFormat": "Two lines. Each contains a single integer.",
-      "outputFormat": "A single integer representing the sum.",
-      "sampleInput": "5\n3",
-      "sampleOutput": "8",
-      "topic": "Math",
+      "title": "Reverse a String",
+      "description": "Read a single string from input and print its reverse.",
+      "constraints": "The string length will be between 1 and 1000.",
+      "inputFormat": "A single line containing a string (no spaces).",
+      "outputFormat": "A single line containing the reversed string.",
+      "sampleInput": "hello",
+      "sampleOutput": "olleh",
+      "topic": "Strings",
       "difficulty": "Easy",
-      "marks": 10,
+      "marks": 20,
       "language": "JAVA",
       "timeLimitMs": 2000,
       "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // TODO: Read two integers and print their sum\n    }\n}\n",
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (!sc.hasNextLine()) return;\n        String s = sc.nextLine();\n        // TODO: Print the reverse of s\n    }\n}\n",
       "publicTestCases": [
         {
-          "id": "JAV-MAT-E-0009-P01",
-          "input": "5\n3\n",
-          "expectedOutput": "8\n",
+          "id": "T1",
+          "input": "hello\n",
+          "expectedOutput": "olleh\n",
           "hidden": false
         },
         {
-          "id": "JAV-MAT-E-0009-P02",
-          "input": "10\n20\n",
-          "expectedOutput": "30\n",
+          "id": "T2",
+          "input": "Java\n",
+          "expectedOutput": "avaJ\n",
           "hidden": false
         }
       ],
       "hiddenTestCases": [
         {
-          "id": "JAV-MAT-E-0009-H01",
-          "input": "-5\n5\n",
-          "expectedOutput": "0\n",
+          "id": "H1",
+          "input": "a\n",
+          "expectedOutput": "a\n",
           "hidden": true
         },
         {
-          "id": "JAV-MAT-E-0009-H02",
-          "input": "0\n0\n",
-          "expectedOutput": "0\n",
+          "id": "H2",
+          "input": "racecar\n",
+          "expectedOutput": "racecar\n",
           "hidden": true
         }
       ]
     },
     {
-      "id": "JAV-LOG-E-0010",
+      "id": "JAV-PRG-M-0007",
       "type": "PROGRAMMING",
-      "title": "Even or Odd",
-      "description": "Read a single integer N. Print 'Even' if the number is even, and 'Odd' if the number is odd.",
-      "constraints": "1 <= N <= 10000",
-      "inputFormat": "A single integer N.",
-      "outputFormat": "The word 'Even' or 'Odd'.",
-      "sampleInput": "4",
-      "sampleOutput": "Even",
-      "topic": "Logic",
-      "difficulty": "Easy",
-      "marks": 10,
+      "title": "Reverse Words in a Sentence",
+      "description": "Read a sentence, split it by spaces, reverse the order of the words, and print the result as a single string separated by a single space.",
+      "constraints": "The sentence will only contain letters and spaces. No leading or trailing spaces.",
+      "inputFormat": "A single line containing a sentence.",
+      "outputFormat": "A single line containing the reversed words.",
+      "sampleInput": "I love Java",
+      "sampleOutput": "Java love I",
+      "topic": "Strings & Logic",
+      "difficulty": "Medium",
+      "marks": 20,
       "language": "JAVA",
-      "timeLimitMs": 1000,
+      "timeLimitMs": 2000,
       "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // TODO: Check if n is even or odd, and print the result\n    }\n}\n",
+      "template": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (!sc.hasNextLine()) return;\n        String s = sc.nextLine();\n        // TODO: Reverse the words in s and print them\n    }\n}\n",
       "publicTestCases": [
         {
-          "id": "JAV-LOG-E-0010-P01",
-          "input": "4\n",
-          "expectedOutput": "Even\n",
+          "id": "T1",
+          "input": "I love Java\n",
+          "expectedOutput": "Java love I\n",
           "hidden": false
         },
         {
-          "id": "JAV-LOG-E-0010-P02",
-          "input": "7\n",
-          "expectedOutput": "Odd\n",
+          "id": "T2",
+          "input": "Hello World\n",
+          "expectedOutput": "World Hello\n",
           "hidden": false
         }
       ],
       "hiddenTestCases": [
         {
-          "id": "JAV-LOG-E-0010-H01",
-          "input": "0\n",
-          "expectedOutput": "Even\n",
+          "id": "H1",
+          "input": "Java\n",
+          "expectedOutput": "Java\n",
           "hidden": true
         },
         {
-          "id": "JAV-LOG-E-0010-H02",
-          "input": "999\n",
-          "expectedOutput": "Odd\n",
+          "id": "H2",
+          "input": "A B C D\n",
+          "expectedOutput": "D C B A\n",
           "hidden": true
         }
       ]
