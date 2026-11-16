@@ -31,31 +31,6 @@
       "template": "import java.util.Scanner;public class Main {    public static String reverseString(String s) {        // Write your logic here        return \"\";    }    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        String s = sc.nextLine();        System.out.println(reverseString(s));        sc.close();    }}",
       "publicTestCases": [
         {
-          "id": "T1",
-          "input": "Hello",
-          "expectedOutput": "olleH",
-          "hidden": false
-        },
-        {
-          "id": "T2",
-          "input": "abc123",
-          "expectedOutput": "321cba",
-          "hidden": false
-        },
-        {
-          "id": "T3",
-          "input": "racecar",
-          "expectedOutput": "racecar",
-          "hidden": false
-        },
-        {
-          "id": "T4",
-          "input": "a",
-          "expectedOutput": "a",
-          "hidden": false
-        },
-      
-        {
           "id": "H1",
           "input": "DataStructures",
           "expectedOutput": "serutcurtSataD",
@@ -78,7 +53,33 @@
           "input": "!@#$%^&*()",
           "expectedOutput": ")(*&^%$#@!",
           "hidden": true
+        },
+        {
+          "id": "T1",
+          "input": "Hello",
+          "expectedOutput": "olleH",
+          "hidden": false
+        },
+        {
+          "id": "T2",
+          "input": "abc123",
+          "expectedOutput": "321cba",
+          "hidden": false
+        },
+        {
+          "id": "T3",
+          "input": "racecar",
+          "expectedOutput": "racecar",
+          "hidden": false
+        },
+        {
+          "id": "T4",
+          "input": "a",
+          "expectedOutput": "a",
+          "hidden": false
         }
+      
+        
       ]
     }
   ]
