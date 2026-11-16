@@ -34,25 +34,25 @@
           "id": "H1",
           "input": "DataStructures",
           "expectedOutput": "serutcurtSataD",
-          "hidden": true
+          "hidden": false
         },
         {
           "id": "H2",
           "input": "12345",
           "expectedOutput": "12345",
-          "hidden": true
+          "hidden": false
         },
         {
           "id": "H3",
           "input": "A man a plan a canal Panama",
           "expectedOutput": "amanaP lanac a nalp a nam A",
-          "hidden": true
+          "hidden": false
         },
         {
           "id": "H4",
           "input": "!@#$%^&*()",
           "expectedOutput": ")(*&^%$#@!",
-          "hidden": true
+          "hidden": false
         },
         {
           "id": "T1",
