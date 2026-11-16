@@ -53,9 +53,8 @@
           "input": "a",
           "expectedOutput": "a",
           "hidden": false
-        }
-      ],
-      "hiddenTestCases": [
+        },
+      
         {
           "id": "H1",
           "input": "DataStructures",
