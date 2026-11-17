@@ -1,86 +1,15 @@
 {
   "schemaVersion": 1,
-  "examId": "44a2c199-70a9-4ed6-8919-dbf984459671",
+  "examId": "f8dfc9a7-1b9f-408e-aec2-468bf11f155e",
   "examName": "Java Strings & Logic Test",
   "durationMinutes": 30,
-  "totalMarks": 20,
+  "totalMarks": 0,
   "passingMarks": 0,
   "negativeMarkingEnabled": false,
   "negativeMarkFactor": 0.0,
   "randomizeQuestions": false,
   "maxAttempts": 1,
-  "startTime": "2026-11-15T21:45:32",
-  "endTime": "2026-11-18T21:45:32",
-  "questions": [
-    {
-      "id": "NEW-b891a8ea",
-      "type": "PROGRAMMING",
-      "title": "Reverse Of String",
-      "description": "Write a Java program that reads a string and prints it in reverse order (characters reversed).",
-      "constraints": "1 ≤ Length of string ≤ 1000String may contain letters, digits, spaces, and special charactersInput is read as a single line",
-      "inputFormat": "A single line containing the string to be reversed.",
-      "outputFormat": "A single line containing the reversed string.",
-      "sampleInput": "Hello World",
-      "sampleOutput": "dlroW olleH",
-      "topic": "Strings",
-      "difficulty": "Easy",
-      "marks": 20,
-      "language": "JAVA",
-      "timeLimitMs": 2000,
-      "memoryLimitMb": 256,
-      "template": "import java.util.Scanner;public class Main {    public static String reverseString(String s) {        // Write your logic here        return \"\";    }    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        String s = sc.nextLine();        System.out.println(reverseString(s));        sc.close();    }}",
-      "publicTestCases": [
-        {
-          "id": "H1",
-          "input": "DataStructures",
-          "expectedOutput": "serutcurtSataD",
-          "hidden": false
-        },
-        {
-          "id": "H2",
-          "input": "12345",
-          "expectedOutput": "12345",
-          "hidden": false
-        },
-        {
-          "id": "H3",
-          "input": "A man a plan a canal Panama",
-          "expectedOutput": "amanaP lanac a nalp a nam A",
-          "hidden": false
-        },
-        {
-          "id": "H4",
-          "input": "!@#$%^&*()",
-          "expectedOutput": ")(*&^%$#@!",
-          "hidden": false
-        },
-        {
-          "id": "T1",
-          "input": "Hello",
-          "expectedOutput": "olleH",
-          "hidden": false
-        },
-        {
-          "id": "T2",
-          "input": "abc123",
-          "expectedOutput": "321cba",
-          "hidden": false
-        },
-        {
-          "id": "T3",
-          "input": "racecar",
-          "expectedOutput": "racecar",
-          "hidden": false
-        },
-        {
-          "id": "T4",
-          "input": "a",
-          "expectedOutput": "a",
-          "hidden": false
-        }
-      
-        
-      ]
-    }
-  ]
+  "startTime": "2026-11-17T11:54:41",
+  "endTime": "2026-11-18T11:54:41",
+  "questions": []
 }
