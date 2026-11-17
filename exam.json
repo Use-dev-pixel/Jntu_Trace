@@ -1,15 +1,404 @@
 {
   "schemaVersion": 1,
   "examId": "f8dfc9a7-1b9f-408e-aec2-468bf11f155e",
-  "examName": "Java Strings & Logic Test",
-  "durationMinutes": 30,
-  "totalMarks": 0,
-  "passingMarks": 0,
+  "examName": "Java Sample Test-1",
+  "durationMinutes": 45,
+  "totalMarks": 35,
+  "passingMarks": 2,
   "negativeMarkingEnabled": false,
   "negativeMarkFactor": 0.0,
-  "randomizeQuestions": false,
+  "randomizeQuestions": true,
   "maxAttempts": 1,
-  "startTime": "2026-11-17T11:54:41",
-  "endTime": "2026-11-18T11:54:41",
-  "questions": []
+  "startTime": "2026-11-17T00:15:00",
+  "endTime": "2026-11-18T11:15:00",
+  "questions": [
+    {
+      "id": "NEW-0bff427e",
+      "type": "MCQ",
+      "title": "Who developed Java?",
+      "description": "Basic",
+      "topic": "Strings",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "ABC",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "BCA",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "James Goswling",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Prem Sahane",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "NEW-3902f353",
+      "type": "MCQ",
+      "title": "Which of the following is not a Java feature?",
+      "description": "Basic",
+      "topic": "Java",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "Platform Indepenedent",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Robust",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Dancing",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Multithreaded",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "NEW-e67e1804",
+      "type": "MCQ",
+      "title": "String s1 = \"Java\"; String s2 = \"Java\"; System.out.println(s1 == s2);",
+      "description": "String Comparison",
+      "topic": "Strings",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "true",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "false",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "null",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "CTE",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "NEW-727638f7",
+      "type": "MCQ",
+      "title": "Which exception occurs when dividing an integer by zero?",
+      "description": "Exception",
+      "topic": "Exception",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "NullPointerExeception",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "DabbaFellowException",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "ArithmeticException",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "WasteFellowException",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "NEW-62689bf7",
+      "type": "MCQ",
+      "title": "Which memory area stores objects in Java?",
+      "description": "Core Java",
+      "topic": "Core",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "Office Floor",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "202",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Heap",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Method Area",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "NEW-f2303c96",
+      "type": "MCQ",
+      "title": "What is the output of the following code?public class Main { public static void main(String[] args) { int a = 5; int b = 2; System.out.println(a / b); } }",
+      "description": "Snippet",
+      "topic": "Program",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "2.5",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "2",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "CTE",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "NEW-04d545c5",
+      "type": "MCQ",
+      "title": "public class Main { public static void main(String[] args) { int x = 10; System.out.println(x++ + ++x); } }",
+      "description": "Snippet",
+      "topic": "Core",
+      "difficulty": "Medium",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "20",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "21",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "22",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "23",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": false
+    },
+    {
+      "id": "NEW-685ae10c",
+      "type": "MCQ",
+      "title": "Which of the following are primitive data types in Java?",
+      "description": "Core",
+      "topic": "Core",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "byte",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "int",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Double",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "char",
+          "correct": true
+        }
+      ],
+      "multipleCorrect": true
+    },
+    {
+      "id": "NEW-f6234b27",
+      "type": "MCQ",
+      "title": "Which of the following keywords are used in exception handling?",
+      "description": "Core",
+      "topic": "Core",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "try",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "throws",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "cathc",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "finally",
+          "correct": true
+        }
+      ],
+      "multipleCorrect": true
+    },
+    {
+      "id": "NEW-f662b671",
+      "type": "MCQ",
+      "title": "Which of the following collections allow duplicate elements?",
+      "description": "Core",
+      "topic": "Core",
+      "difficulty": "Easy",
+      "marks": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "ArrayList",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Vector",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Treeset",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Hashset",
+          "correct": false
+        }
+      ],
+      "multipleCorrect": true
+    },
+    {
+      "id": "NEW-7a3b3ff5",
+      "type": "PROGRAMMING",
+      "title": "Write a Java program to check whether a given number is even or odd.",
+      "description": "Number programming",
+      "constraints": "n>0",
+      "inputFormat": "10",
+      "outputFormat": "\"Hello\"",
+      "sampleInput": "10",
+      "sampleOutput": "10 is an Even Number",
+      "topic": "Number programs",
+      "difficulty": "Easy",
+      "marks": 5,
+      "language": "JAVA",
+      "timeLimitMs": 2000,
+      "memoryLimitMb": 256,
+      "template": "import java.util.Scanner;public class EvenOdd {    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        System.out.print(\"Enter a number: \");        int num = sc.nextInt();        // TODO: Write your logic here        sc.close();    }}",
+      "publicTestCases": [
+        {
+          "id": "T1",
+          "input": "10",
+          "expectedOutput": "10 is an Even Number",
+          "hidden": false
+        }
+      ],
+      "hiddenTestCases": [
+        {
+          "id": "H1",
+          "input": "13",
+          "expectedOutput": "13 is an Odd Number",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "NEW-185baad1",
+      "type": "PROGRAMMING",
+      "title": "Reverse a String",
+      "description": "Reverse",
+      "constraints": "he input string must contain at least one character.The maximum length of the string is 1000 characters.The string may contain uppercase and lowercase letters.Spaces and special characters may be present.Do not use built-in reverse methods such as StringBuilder.reverse().Preserve the original case of each character.",
+      "inputFormat": "\"Hello\"",
+      "outputFormat": "\"Hello\"",
+      "sampleInput": "Hello",
+      "sampleOutput": "olleH",
+      "topic": "Strings",
+      "difficulty": "Easy",
+      "marks": 10,
+      "language": "JAVA",
+      "timeLimitMs": 2000,
+      "memoryLimitMb": 256,
+      "template": "import java.util.Scanner;public class ReverseString {    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        System.out.print(\"Enter a string: \");        String str = sc.nextLine();        // TODO: Write your logic here        sc.close();    }}",
+      "publicTestCases": [
+        {
+          "id": "T1",
+          "input": "Java is High",
+          "expectedOutput": "hgiH si avaJ",
+          "hidden": false
+        }
+      ],
+      "hiddenTestCases": [
+        {
+          "id": "H1",
+          "input": "Java",
+          "expectedOutput": "avaJ",
+          "hidden": true
+        }
+      ]
+    }
+  ]
 }
