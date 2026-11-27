@@ -10,37 +10,31 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    *,
-    *::before,
-    *::after {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     :root {
-      --bg: #070B12;
-      --bg-elevated: #0D1422;
-      --surface: rgba(16, 24, 39, 0.68);
-      --surface-solid: #101827;
-      --surface-raised: #172236;
-      --border: rgba(148, 179, 232, 0.12);
-      --border-bright: rgba(106, 169, 255, 0.35);
-      --text: #F1F5FD;
-      --text-dim: #97A6C0;
-      --text-muted: #5B6D8C;
+      --bg: #0B0F17;
+      --surface: #111B2A;
+      --surface-raised: #1A2332;
+      --border: #1F2A3C;
+      --border-bright: #2F405E;
+      --text: #E8EDF5;
+      --text-dim: #9AA6B8;
+      --text-muted: #5C6E8A;
       --accent: #4F9CFF;
-      --accent-glow: rgba(79, 156, 255, 0.38);
-      --accent2: #9F6BFF;
+      --accent2: #A274FF;
       --orange: #F58220;
-      --orange-bright: #FFA047;
-      --orange-soft: rgba(245, 130, 32, 0.14);
-      --green: #4ADE80;
-      --rose: #FB7185;
-      --cyan: #38BDF8;
-      --amber: #FBBF24;
+      --orange-soft: rgba(245, 130, 32, 0.12);
+      --green: #5CFF9D;
+      --rose: #FF5C7A;
+      --cyan: #5CE5FF;
+      --amber: #FFD15C;
     }
 
     html {
@@ -51,51 +45,36 @@
       background: var(--bg);
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.5;
       overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* ===== AMBIENT LAYERED BACKGROUND ===== */
+    /* ===== AMBIENT BACKGROUND ===== */
     .bg-glow {
       position: fixed;
       inset: 0;
-      z-index: -4;
+      z-index: -3;
       background:
-        radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.20), transparent 45%),
-        radial-gradient(circle at 85% 25%, rgba(159, 107, 255, 0.16), transparent 48%),
-        radial-gradient(circle at 75% 80%, rgba(245, 130, 32, 0.11), transparent 50%),
-        radial-gradient(circle at 25% 85%, rgba(56, 189, 248, 0.12), transparent 50%);
-      animation: auroraShift 22s infinite alternate ease-in-out;
+        radial-gradient(circle at 20% 30%, rgba(42, 110, 255, 0.18), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(155, 81, 224, 0.14), transparent 55%),
+        radial-gradient(circle at 40% 80%, rgba(0, 200, 200, 0.10), transparent 60%),
+        radial-gradient(circle at 70% 20%, rgba(245, 130, 32, 0.08), transparent 50%);
+      animation: drift 24s infinite alternate ease-in-out;
     }
 
-    @keyframes auroraShift {
+    @keyframes drift {
       0% {
-        transform: scale(1) translate3d(0, 0, 0);
-      }
-
-      50% {
-        transform: scale(1.08) translate3d(2%, -2%, 0);
+        transform: scale(1) translate(0, 0);
+        opacity: 0.9;
       }
 
       100% {
-        transform: scale(1.14) translate3d(-2%, 3%, 0);
+        transform: scale(1.15) translate(3%, -3%);
+        opacity: 1;
       }
-    }
-
-    .cursor-aura {
-      position: fixed;
-      width: 520px;
-      height: 520px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(79, 156, 255, 0.08) 0%, rgba(159, 107, 255, 0.03) 40%, transparent 70%);
-      pointer-events: none;
-      z-index: -3;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.4s ease;
     }
 
     .bg-particles {
@@ -108,26 +87,29 @@
 
     .particle {
       position: absolute;
+      width: 3px;
+      height: 3px;
       border-radius: 50%;
+      background: rgba(106, 169, 255, 0.5);
       animation: floatParticle linear infinite;
     }
 
     @keyframes floatParticle {
       0% {
-        transform: translateY(105vh) translateX(0) scale(0.4);
+        transform: translateY(100vh) translateX(0) scale(0);
         opacity: 0;
       }
 
-      15% {
-        opacity: 0.85;
+      10% {
+        opacity: 1;
       }
 
-      85% {
-        opacity: 0.85;
+      90% {
+        opacity: 1;
       }
 
       100% {
-        transform: translateY(-10vh) translateX(50px) scale(1.1);
+        transform: translateY(-10vh) translateX(60px) scale(1);
         opacity: 0;
       }
     }
@@ -137,130 +119,149 @@
       inset: 0;
       z-index: -1;
       background-image:
-        linear-gradient(rgba(106, 169, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(106, 169, 255, 0.04) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(ellipse at 50% 35%, black 25%, transparent 78%);
-      -webkit-mask-image: radial-gradient(ellipse at 50% 35%, black 25%, transparent 78%);
+        linear-gradient(rgba(106, 169, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(106, 169, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      animation: gridPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes gridPulse {
+      0% {
+        opacity: 0.4;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
 
     .container {
       max-width: 1320px;
       margin: 0 auto;
-      padding: 0 1.75rem 2rem;
+      padding: 1.5rem 1.5rem;
       width: 100%;
       position: relative;
       z-index: 1;
     }
 
-    /* ===== FLOATING GLASS NAVBAR ===== */
-    .navbar-wrap {
-      position: sticky;
-      top: 1rem;
-      z-index: 100;
-      margin-bottom: 1.5rem;
-    }
-
+    /* ===== NAVBAR ===== */
     .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1rem;
-      padding: 0.8rem 1.4rem;
-      border-radius: 999px;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      background: rgba(11, 17, 29, 0.65);
-      border: 1px solid rgba(148, 179, 232, 0.12);
-      box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+      padding: 0.75rem 0 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(11, 15, 23, 0.7);
+      margin: 0 -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, background 0.3s ease;
     }
 
     .navbar.scrolled {
-      background: rgba(9, 14, 24, 0.88);
-      border-color: rgba(106, 169, 255, 0.25);
-      box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.85), 0 0 24px -8px rgba(79, 156, 255, 0.22);
+      border-bottom-color: var(--border);
+      background: rgba(11, 15, 23, 0.92);
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.75rem;
       font-weight: 800;
-      font-size: 1.45rem;
-      letter-spacing: -0.025em;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
       color: white;
       cursor: pointer;
-      transition: transform 0.25s ease;
+      transition: transform 0.3s ease;
     }
 
     .logo:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
 
-    .logo-icon-box {
-      width: 36px;
-      height: 36px;
-      border-radius: 11px;
-      background: linear-gradient(135deg, rgba(79, 156, 255, 0.22), rgba(159, 107, 255, 0.22));
-      border: 1px solid rgba(106, 169, 255, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 18px rgba(79, 156, 255, 0.25);
-    }
-
-    .logo-icon-box i {
-      background: linear-gradient(135deg, #6AA9FF, #C084FC);
+    .logo i {
+      background: linear-gradient(135deg, #4F9CFF, #A274FF);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-size: 1.15rem;
+      font-size: 2rem;
+      animation: logoPulse 3s ease-in-out infinite;
     }
 
-    .logo span.brand-name {
-      background: linear-gradient(135deg, #FFFFFF 30%, #BFD7FF 100%);
+    @keyframes logoPulse {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 4px rgba(106, 169, 255, 0.4));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 12px rgba(162, 116, 255, 0.7));
+      }
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #ffffff, #c0d4ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .logo .JSpiders-badge {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.4px;
-      background: linear-gradient(135deg, #F58220, #FFB066);
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      color: #090D16;
-      -webkit-text-fill-color: #090D16;
-      margin-left: 0.35rem;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #F58220, #FF9E4A);
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+      color: #0B0F17;
+      -webkit-text-fill-color: #0B0F17;
+      margin-left: 0.25rem;
       vertical-align: middle;
-      box-shadow: 0 0 16px rgba(245, 130, 32, 0.45);
+      box-shadow: 0 0 12px rgba(245, 130, 32, 0.4);
+      animation: badgeGlow 2.5s ease-in-out infinite;
+    }
+
+    @keyframes badgeGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 8px rgba(245, 130, 32, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(245, 130, 32, 0.7);
+      }
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.75rem;
+      gap: 2rem;
       flex-wrap: wrap;
     }
 
-    .nav-links a:not(.btn-nav-download) {
+    .nav-links a {
       color: var(--text-dim);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       transition: color 0.2s ease;
       position: relative;
-      padding: 0.25rem 0;
     }
 
-    .nav-links a:not(.btn-nav-download)::after {
+    .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: -2px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: -4px;
+      left: 0;
       width: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
@@ -268,76 +269,83 @@
       border-radius: 2px;
     }
 
-    .nav-links a:not(.btn-nav-download):hover {
-      color: #FFFFFF;
+    .nav-links a:hover {
+      color: white;
     }
 
-    .nav-links a:not(.btn-nav-download):hover::after {
+    .nav-links a:hover::after {
       width: 100%;
     }
 
-    .btn-nav-download {
-      background: linear-gradient(135deg, rgba(79, 156, 255, 0.16), rgba(159, 107, 255, 0.16));
-      border: 1px solid rgba(106, 169, 255, 0.38);
-      color: #FFFFFF;
-      text-decoration: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 999px;
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-bright);
+      color: var(--text);
+      padding: 0.55rem 1.25rem;
+      border-radius: 60px;
       font-weight: 600;
-      font-size: 0.88rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
       transition: all 0.25s ease;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn-nav-download:hover {
-      background: linear-gradient(135deg, #3B82F6, #8B5CF6);
-      border-color: transparent;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px -6px rgba(79, 156, 255, 0.6);
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: rgba(79, 156, 255, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -8px var(--accent);
     }
 
     /* ===== HERO ===== */
     .hero {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 3.25rem;
-      padding: 2.25rem 0 3.5rem;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 2rem 0 3rem;
     }
 
     .hero-content {
-      animation: fadeUp 0.85s cubic-bezier(0.2, 0.9, 0.3, 1);
+      flex: 1 1 400px;
+      animation: fadeUp 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      background: rgba(18, 28, 46, 0.8);
-      border: 1px solid rgba(106, 169, 255, 0.28);
-      padding: 0.4rem 1rem 0.4rem 0.65rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
+      background: rgba(79, 156, 255, 0.15);
+      border: 1px solid rgba(79, 156, 255, 0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.2px;
-      color: #BDD6FF;
+      letter-spacing: 0.3px;
+      color: #AACBFF;
       margin-bottom: 1.5rem;
-      gap: 0.55rem;
-      box-shadow: 0 6px 20px -8px rgba(79, 156, 255, 0.4);
+      gap: 0.5rem;
+      animation: badgeFloat 4s ease-in-out infinite;
     }
 
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 10px var(--green);
-      animation: livePulse 2s infinite;
+    @keyframes badgeFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
     }
 
-    @keyframes livePulse {
+    .hero-badge i {
+      animation: zap 1.5s ease-in-out infinite;
+    }
+
+    @keyframes zap {
 
       0%,
       100% {
@@ -346,30 +354,31 @@
       }
 
       50% {
-        transform: scale(1.4);
-        opacity: 0.55;
+        transform: scale(1.3);
+        opacity: 0.7;
       }
     }
 
     .hero-badge .sponsor {
-      color: var(--orange-bright);
+      color: var(--orange);
       font-weight: 700;
+      margin-left: 0.3rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.7rem, 5.4vw, 4.4rem);
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
       font-weight: 900;
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-      margin-bottom: 1.25rem;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.2rem;
     }
 
     .gradient-text {
-      background: linear-gradient(120deg, #60A5FA 0%, #C084FC 35%, #F58220 70%, #60A5FA 100%);
-      background-size: 240% auto;
+      background: linear-gradient(135deg, #6AA9FF 0%, #B68CFF 50%, #6AA9FF 100%);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shimmerText 5s linear infinite;
+      animation: shimmerText 4s linear infinite;
     }
 
     @keyframes shimmerText {
@@ -378,111 +387,69 @@
       }
 
       100% {
-        background-position: 240% center;
+        background-position: 200% center;
       }
     }
 
     .hero p {
-      font-size: 1.12rem;
+      font-size: 1.1rem;
       color: var(--text-dim);
-      max-width: 540px;
+      max-width: 550px;
       margin-bottom: 2rem;
-      line-height: 1.65;
-    }
-
-    .hero p strong {
-      color: #FFFFFF;
-      font-weight: 600;
     }
 
     .hero-cta {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+      background: linear-gradient(135deg, #3B7BFF, #9B5CFF);
+      background-size: 200% auto;
       border: none;
       color: white;
       font-weight: 600;
-      padding: 0.95rem 2rem;
-      border-radius: 999px;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
       font-size: 1rem;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+      transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
-      box-shadow: 0 12px 30px -8px rgba(59, 130, 246, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      gap: 0.6rem;
+      box-shadow: 0 8px 24px -6px rgba(59, 123, 255, 0.4);
       position: relative;
       overflow: hidden;
     }
 
-    .btn-primary::after {
+    .btn-primary::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 40%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-      transform: rotate(25deg);
-      transition: left 0.6s ease;
+      inset: 0;
+      background: linear-gradient(135deg, #5B9BFF, #B67CFF);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .btn-primary:hover::after {
-      left: 130%;
+    .btn-primary:hover::before {
+      opacity: 1;
+    }
+
+    .btn-primary>* {
+      position: relative;
+      z-index: 1;
     }
 
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 18px 38px -8px rgba(59, 130, 246, 0.75);
+      box-shadow: 0 16px 36px -8px #3B7BFF;
     }
 
-    .btn-secondary-hero {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(148, 179, 232, 0.2);
-      color: var(--text);
-      font-weight: 600;
-      padding: 0.95rem 1.65rem;
-      border-radius: 999px;
-      font-size: 0.98rem;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .btn-secondary-hero:hover {
-      background: rgba(79, 156, 255, 0.1);
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .hero-trust-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      font-size: 0.84rem;
-      color: var(--text-dim);
-    }
-
-    .hero-trust-pills span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .hero-trust-pills i {
-      color: var(--cyan);
-    }
-
-    /* ===== INTERACTIVE HERO CODE & TRACE CARD ===== */
+    /* ===== HERO VISUAL ===== */
     .hero-visual {
+      flex: 1 1 450px;
       position: relative;
       perspective: 1200px;
       display: flex;
@@ -490,272 +457,243 @@
       align-items: center;
     }
 
-    .hero-orb-behind {
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(79, 156, 255, 0.28), rgba(159, 107, 255, 0.16), transparent 70%);
-      filter: blur(28px);
-      z-index: 0;
-      pointer-events: none;
+    .floating-card {
+      background: linear-gradient(145deg, #151E2C, #0E141F);
+      border-radius: 32px;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 480px;
+      border: 1px solid rgba(79, 156, 255, 0.2);
+      box-shadow:
+        0 30px 50px -20px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+        0 0 60px -20px rgba(79, 156, 255, 0.3);
+      transition: transform 0.3s ease;
+      animation: floatCard 6s infinite alternate ease-in-out;
+      position: relative;
     }
 
-    .floating-card {
-      background: linear-gradient(160deg, rgba(20, 30, 48, 0.92), rgba(11, 17, 29, 0.96));
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 26px;
-      padding: 1.35rem;
-      width: 100%;
-      max-width: 530px;
-      border: 1px solid rgba(106, 169, 255, 0.25);
-      box-shadow:
-        0 32px 64px -20px rgba(0, 0, 0, 0.85),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        0 0 65px -22px rgba(79, 156, 255, 0.35);
-      transition: transform 0.25s ease-out;
-      position: relative;
-      z-index: 1;
+    .floating-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 32px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(79, 156, 255, 0.5), transparent 40%, transparent 60%, rgba(245, 130, 32, 0.4));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      animation: borderShimmer 4s linear infinite;
+    }
+
+    @keyframes borderShimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 200% 50%;
+      }
+    }
+
+    @keyframes floatCard {
+      0% {
+        transform: translateY(0) rotateX(1deg) rotateY(-1deg);
+      }
+
+      100% {
+        transform: translateY(-14px) rotateX(2deg) rotateY(2deg);
+      }
     }
 
     .card-header {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
-      padding-bottom: 0.9rem;
-      margin-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(148, 179, 232, 0.1);
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .dot {
-      width: 11px;
-      height: 11px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
+      transition: transform 0.2s ease;
+    }
+
+    .dot:hover {
+      transform: scale(1.3);
     }
 
     .dot.red {
-      background: #FB7185;
-      box-shadow: 0 0 8px rgba(251, 113, 133, 0.55);
+      background: #FF5C7A;
+      box-shadow: 0 0 8px rgba(255, 92, 122, 0.6);
     }
 
     .dot.yellow {
-      background: #FBBF24;
-      box-shadow: 0 0 8px rgba(251, 191, 36, 0.55);
+      background: #FFD15C;
+      box-shadow: 0 0 8px rgba(255, 209, 92, 0.6);
     }
 
     .dot.green {
-      background: #4ADE80;
-      box-shadow: 0 0 8px rgba(74, 222, 128, 0.55);
+      background: #5CFF9D;
+      box-shadow: 0 0 8px rgba(92, 255, 157, 0.6);
     }
 
     .card-header .title {
-      margin-left: 0.6rem;
+      margin-left: auto;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      color: #B4C6E4;
-      font-weight: 600;
+      font-size: 0.8rem;
+      color: #8294B0;
+      letter-spacing: -0.2px;
     }
 
     .card-header .jntu-tag {
-      margin-left: auto;
-      font-size: 0.68rem;
-      color: var(--orange-bright);
+      font-size: 0.6rem;
+      color: var(--orange);
       font-weight: 700;
-      background: rgba(245, 130, 32, 0.14);
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(245, 130, 32, 0.35);
-      letter-spacing: 0.4px;
-    }
-
-    .hero-code-block {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      background: rgba(245, 130, 32, 0.12);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      border: 1px solid rgba(245, 130, 32, 0.3);
     }
 
     .code-line {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.83rem;
+      font-size: 0.85rem;
       display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      padding: 0.26rem 0.6rem;
-      border-radius: 8px;
-      border-left: 2px solid transparent;
-      transition: all 0.22s ease;
+      gap: 1rem;
+      padding: 0.15rem 0;
+      opacity: 0;
+      animation: codeReveal 0.5s ease-out forwards;
     }
 
-    .code-line.active-line {
-      background: linear-gradient(90deg, rgba(79, 156, 255, 0.22), rgba(159, 107, 255, 0.08));
-      border-left-color: var(--accent);
-      box-shadow: inset 0 0 12px rgba(79, 156, 255, 0.12);
+    .code-line:nth-child(2) {
+      animation-delay: 0.1s;
     }
 
-    .code-line.active-line .line-num {
-      color: #60A5FA;
-      font-weight: 700;
+    .code-line:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .code-line:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    .code-line:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+
+    .code-line:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+
+    .code-line:nth-child(7) {
+      animation-delay: 0.6s;
+    }
+
+    .code-line:nth-child(8) {
+      animation-delay: 0.7s;
+    }
+
+    .code-line:nth-child(9) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes codeReveal {
+      from {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .line-num {
-      color: #465672;
-      width: 18px;
+      color: #3D4A62;
+      width: 24px;
       text-align: right;
       user-select: none;
-      font-size: 0.78rem;
     }
 
     .line-code {
-      color: #D2E1FF;
-      white-space: pre;
+      color: #B0C8FF;
+      white-space: pre-wrap;
+      word-break: break-word;
     }
 
     .line-code .keyword {
       color: #FF9E7A;
-      font-weight: 500;
-    }
-
-    .line-code .type {
-      color: #7DD3FC;
     }
 
     .line-code .string {
-      color: #86EFAC;
+      color: #A5E6A5;
     }
 
-    .line-code .num {
-      color: #FCD34D;
-    }
-
-    /* Live Trace Inspector inside Hero Card */
-    .hero-inspector {
-      margin-top: 1rem;
-      background: rgba(7, 11, 18, 0.75);
-      border: 1px solid rgba(148, 179, 232, 0.12);
-      border-radius: 16px;
-      padding: 0.85rem 1rem;
-    }
-
-    .inspector-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.65rem;
-      flex-wrap: wrap;
-    }
-
-    .inspector-status {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.73rem;
-      color: var(--cyan);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .trace-controls {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .trace-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(148, 179, 232, 0.18);
-      color: #D2E1FF;
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      font-size: 0.72rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-    }
-
-    .trace-btn:hover {
-      background: rgba(79, 156, 255, 0.22);
-      border-color: var(--accent);
-      color: white;
-    }
-
-    .trace-btn.playing {
-      background: rgba(74, 222, 128, 0.18);
-      border-color: rgba(74, 222, 128, 0.45);
-      color: var(--green);
+    .line-code .comment {
+      color: #5C6E8A;
     }
 
     .trace-demo {
+      margin-top: 1.5rem;
+      border-top: 1px solid #1E293B;
+      padding-top: 1.2rem;
       display: flex;
-      gap: 0.55rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 0.65rem;
     }
 
     .var-chip {
-      background: #131D2E;
-      border-radius: 999px;
-      padding: 0.3rem 0.8rem;
+      background: #1A2332;
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
-      display: inline-flex;
+      font-size: 0.8rem;
+      display: flex;
       align-items: center;
-      gap: 0.45rem;
-      border: 1px solid rgba(106, 169, 255, 0.25);
-      transition: all 0.25s ease;
+      gap: 0.5rem;
+      border: 1px solid #2D3C56;
+      transition: all 0.3s ease;
+      animation: chipPulse 3s ease-in-out infinite;
     }
 
-    .var-chip.mutated {
-      border-color: var(--green);
-      box-shadow: 0 0 14px rgba(74, 222, 128, 0.28);
-      transform: scale(1.03);
+    .var-chip:nth-child(2) {
+      animation-delay: 1.5s;
+    }
+
+    @keyframes chipPulse {
+
+      0%,
+      100% {
+        border-color: #2D3C56;
+      }
+
+      50% {
+        border-color: #4F9CFF;
+        box-shadow: 0 0 12px rgba(79, 156, 255, 0.3);
+      }
     }
 
     .var-chip i {
       color: var(--accent);
-      font-size: 0.68rem;
+      font-size: 0.7rem;
     }
 
     .var-chip .val {
-      color: #E9D5FF;
-      font-weight: 600;
+      color: #E0B0FF;
     }
 
-    .hero-mini-stdout {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.74rem;
-      color: #93C5FD;
-      background: rgba(13, 20, 34, 0.9);
-      border-radius: 10px;
-      padding: 0.5rem 0.75rem;
-      border: 1px solid rgba(148, 179, 232, 0.08);
-      min-height: 44px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-mini-stdout span.stdout-label {
-      color: var(--text-muted);
-      font-size: 0.66rem;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 2px;
-    }
-
-    /* ===== JSPIDERS BANNER ===== */
+    /* ===== JSpiders BANNER ===== */
     .JSpiders-banner {
-      background: linear-gradient(135deg, rgba(245, 130, 32, 0.13) 0%, rgba(17, 25, 40, 0.85) 55%, rgba(79, 156, 255, 0.10) 100%);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(245, 130, 32, 0.3);
+      background: linear-gradient(135deg, rgba(245, 130, 32, 0.12), rgba(255, 158, 74, 0.06));
+      border: 1px solid rgba(245, 130, 32, 0.25);
       border-radius: 28px;
-      padding: 2.35rem 2.25rem;
-      margin: 2rem 0 4.5rem;
+      padding: 2.5rem 2rem;
+      margin: 3rem 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -763,119 +701,132 @@
       gap: 2rem;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 24px 48px -24px rgba(245, 130, 32, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      animation: fadeUp 0.8s ease-out;
     }
 
     .JSpiders-banner::before {
       content: '';
       position: absolute;
-      top: -60%;
-      right: -10%;
-      width: 380px;
-      height: 380px;
-      background: radial-gradient(circle, rgba(245, 130, 32, 0.2), transparent 70%);
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(245, 130, 32, 0.18), transparent 70%);
       border-radius: 50%;
       pointer-events: none;
+      animation: orbFloat 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes orbFloat {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(-30px, 30px) scale(1.2);
+      }
     }
 
     .JSpiders-banner h2 {
-      font-size: 1.75rem;
+      font-size: 1.8rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.5rem;
     }
 
     .JSpiders-banner h2 .highlight {
-      background: linear-gradient(135deg, #F58220, #FFBA75);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--orange);
+      position: relative;
+    }
+
+    .JSpiders-banner h2 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+      animation: underlineGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes underlineGlow {
+      0% {
+        opacity: 0.4;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
 
     .JSpiders-banner p {
       color: var(--text-dim);
-      max-width: 580px;
-      font-size: 0.96rem;
+      max-width: 600px;
+      font-size: 0.95rem;
     }
 
     .JSpiders-stats {
       display: flex;
-      gap: 2.25rem;
+      gap: 2.5rem;
       flex-wrap: wrap;
     }
 
     .JSpiders-stat {
-      background: rgba(10, 15, 25, 0.55);
-      border: 1px solid rgba(245, 130, 32, 0.22);
-      border-radius: 18px;
-      padding: 0.95rem 1.35rem;
       text-align: center;
-      min-width: 132px;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .JSpiders-stat:hover {
-      transform: translateY(-4px);
-      border-color: var(--orange);
     }
 
     .JSpiders-stat .number {
-      font-size: 1.9rem;
+      font-size: 2rem;
       font-weight: 900;
-      color: var(--orange-bright);
-      line-height: 1.1;
-      text-shadow: 0 0 20px rgba(245, 130, 32, 0.35);
+      color: var(--orange);
+      line-height: 1;
+      animation: numberPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes numberPulse {
+
+      0%,
+      100% {
+        text-shadow: 0 0 10px rgba(245, 130, 32, 0.3);
+      }
+
+      50% {
+        text-shadow: 0 0 25px rgba(245, 130, 32, 0.7);
+      }
     }
 
     .JSpiders-stat .label {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       color: var(--text-dim);
-      font-weight: 600;
-      letter-spacing: 0.4px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
       text-transform: uppercase;
-      margin-top: 0.35rem;
+      margin-top: 0.3rem;
     }
 
-    /* ===== SECTION HEADERS ===== */
-    .section-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--accent);
-      background: rgba(79, 156, 255, 0.1);
-      border: 1px solid rgba(79, 156, 255, 0.24);
-      padding: 0.32rem 0.9rem;
-      border-radius: 999px;
-      margin-bottom: 0.85rem;
-    }
-
-    .section-header-center {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
+    /* ===== SECTION TITLES ===== */
     .section-title {
-      font-size: clamp(1.9rem, 3.6vw, 2.55rem);
+      font-size: 2rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       margin-bottom: 0.75rem;
-      line-height: 1.15;
+      text-align: center;
     }
 
     .section-subtitle {
+      text-align: center;
       color: var(--text-dim);
-      font-size: 1.02rem;
-      max-width: 640px;
-      margin: 0 auto;
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* ===== REVEAL ANIMATIONS ===== */
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
+      transform: translateY(40px);
       transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.7s cubic-bezier(0.2, 0.9, 0.3, 1);
     }
 
@@ -885,472 +836,507 @@
     }
 
     .reveal-delay-1 {
-      transition-delay: 0.08s;
+      transition-delay: 0.1s;
     }
 
     .reveal-delay-2 {
-      transition-delay: 0.16s;
+      transition-delay: 0.2s;
     }
 
     .reveal-delay-3 {
-      transition-delay: 0.24s;
+      transition-delay: 0.3s;
     }
 
     .reveal-delay-4 {
-      transition-delay: 0.32s;
+      transition-delay: 0.4s;
     }
 
     .reveal-delay-5 {
-      transition-delay: 0.40s;
+      transition-delay: 0.5s;
     }
 
     .reveal-delay-6 {
-      transition-delay: 0.48s;
+      transition-delay: 0.6s;
     }
 
-    /* ===== SPOTLIGHT BENTO CARDS (FEATURES & TRACE) ===== */
-    .features-grid,
-    .trace-grid {
+    /* ===== FEATURES ===== */
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin: 3rem 0 4rem;
     }
 
-    .spotlight-card {
-      --mouse-x: 50%;
-      --mouse-y: 50%;
-      background: var(--surface);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+    .feature-card {
+      background: rgba(18, 26, 38, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid var(--border);
-      border-radius: 26px;
-      padding: 2rem 1.85rem;
-      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
       position: relative;
       overflow: hidden;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
-    .spotlight-card::before {
+    .feature-card::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: radial-gradient(420px circle at var(--mouse-x) var(--mouse-y), rgba(79, 156, 255, 0.14), transparent 65%);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-      pointer-events: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--orange));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
 
-    .spotlight-card:hover::before {
-      opacity: 1;
+    .feature-card:hover::before {
+      transform: scaleX(1);
     }
 
-    .spotlight-card:hover {
-      border-color: rgba(106, 169, 255, 0.42);
-      transform: translateY(-6px);
-      box-shadow: 0 24px 48px -22px rgba(0, 0, 0, 0.8), 0 0 28px -12px rgba(79, 156, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    .feature-card:hover {
+      border-color: rgba(79, 156, 255, 0.4);
+      transform: translateY(-8px);
+      background: rgba(24, 34, 50, 0.95);
+      box-shadow: 0 20px 40px -20px rgba(79, 156, 255, 0.4);
     }
 
-    .feature-icon,
-    .trace-icon {
-      background: linear-gradient(145deg, rgba(30, 48, 78, 0.9), rgba(16, 25, 42, 0.95));
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
+    .feature-icon {
+      background: linear-gradient(135deg, #1E2E48, #141E2E);
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.35rem;
-      font-size: 1.45rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
       color: #6AA9FF;
-      border: 1px solid rgba(106, 169, 255, 0.25);
-      box-shadow: 0 8px 20px -8px rgba(79, 156, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      transition: all 0.35s ease;
+      border: 1px solid #2F405E;
+      transition: all 0.4s ease;
+      position: relative;
     }
 
-    .spotlight-card:hover .feature-icon,
-    .spotlight-card:hover .trace-icon {
-      transform: scale(1.08) rotate(-4deg);
-      color: #FFFFFF;
-      background: linear-gradient(135deg, #3B82F6, #8B5CF6);
-      border-color: transparent;
-      box-shadow: 0 10px 24px -6px rgba(79, 156, 255, 0.65);
+    .feature-card:hover .feature-icon {
+      transform: rotate(-6deg) scale(1.1);
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(79, 156, 255, 0.3);
     }
 
-    .spotlight-card h3 {
-      font-size: 1.24rem;
+    .feature-card h3 {
+      font-size: 1.3rem;
       font-weight: 700;
-      letter-spacing: -0.015em;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.75rem;
     }
 
-    .spotlight-card p {
+    .feature-card p {
       color: var(--text-dim);
-      font-size: 0.94rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
     }
 
     .feature-card ul {
       list-style: none;
-      margin-top: 1.15rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(148, 179, 232, 0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
+      margin-top: 1rem;
+      padding: 0;
     }
 
     .feature-card ul li {
-      color: #93A5C4;
+      color: #8294B0;
       font-size: 0.85rem;
+      padding: 0.3rem 0;
       display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
       transition: color 0.2s ease;
     }
 
     .feature-card:hover ul li {
-      color: #D2E1FF;
+      color: #B0C8FF;
     }
 
     .feature-card ul li i {
-      color: var(--green);
-      font-size: 0.78rem;
+      color: var(--accent);
+      font-size: 0.7rem;
     }
 
-    /* ===== INTERACTIVE TRACE WORKBENCH ===== */
+    /* ===== TRACE SECTION ===== */
     .trace-section {
-      margin: 5.5rem 0;
+      margin: 5rem 0;
     }
 
-    .trace-workbench {
-      background: linear-gradient(160deg, rgba(16, 24, 39, 0.88), rgba(9, 14, 24, 0.95));
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-radius: 28px;
-      padding: 1.75rem;
-      border: 1px solid rgba(106, 169, 255, 0.24);
-      margin-top: 2.5rem;
-      box-shadow: 0 28px 56px -24px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    }
-
-    .workbench-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding-bottom: 1.1rem;
-      margin-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(148, 179, 232, 0.1);
-    }
-
-    .workbench-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: #7DD3FC;
-      letter-spacing: 0.5px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .workbench-grid {
+    .trace-grid {
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
     }
 
-    .trace-step-list {
+    .trace-card {
+      background: rgba(18, 26, 38, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trace-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .trace-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .trace-card:hover {
+      border-color: rgba(106, 169, 255, 0.5);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -24px rgba(106, 169, 255, 0.5);
+    }
+
+    .trace-card .trace-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1E2E48, #141E2E);
       display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #6AA9FF;
+      margin-bottom: 1.2rem;
+      border: 1px solid #2F405E;
+      transition: all 0.4s ease;
+    }
+
+    .trace-card:hover .trace-icon {
+      color: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 0 20px rgba(92, 229, 255, 0.3);
+      transform: rotate(6deg);
+    }
+
+    .trace-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .trace-card p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    .trace-visual-demo {
+      background: linear-gradient(145deg, #0D1420, #111B2A);
+      border-radius: 24px;
+      padding: 1.5rem;
+      border: 1px solid #24324A;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trace-visual-demo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      animation: scanLine 3s ease-in-out infinite;
+    }
+
+    @keyframes scanLine {
+
+      0%,
+      100% {
+        transform: translateX(-100%);
+      }
+
+      50% {
+        transform: translateX(100%);
+      }
     }
 
     .trace-step-row {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      padding: 0.75rem 1rem;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid transparent;
-      transition: all 0.25s ease;
-      cursor: pointer;
+      gap: 1rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+      cursor: default;
     }
 
     .trace-step-row:hover {
       background: rgba(79, 156, 255, 0.08);
-      border-color: rgba(79, 156, 255, 0.22);
     }
 
     .trace-step-row.active {
-      background: linear-gradient(90deg, rgba(79, 156, 255, 0.18), rgba(159, 107, 255, 0.08));
-      border-color: rgba(79, 156, 255, 0.45);
-      box-shadow: 0 8px 20px -10px rgba(79, 156, 255, 0.5);
+      background: rgba(79, 156, 255, 0.12);
+      border-left: 3px solid var(--accent);
+      animation: activePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes activePulse {
+
+      0%,
+      100% {
+        background: rgba(79, 156, 255, 0.12);
+      }
+
+      50% {
+        background: rgba(79, 156, 255, 0.2);
+      }
     }
 
     .trace-step-row .step-badge {
-      background: #1A263B;
-      border-radius: 8px;
-      padding: 0.2rem 0.55rem;
-      font-size: 0.72rem;
+      background: #1D2A3F;
+      border-radius: 6px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.65rem;
       font-weight: 700;
       color: #6AA9FF;
       font-family: 'JetBrains Mono', monospace;
-      border: 1px solid rgba(106, 169, 255, 0.2);
-    }
-
-    .trace-step-row.active .step-badge {
-      background: var(--accent);
-      color: #070B12;
     }
 
     .trace-step-row .step-desc {
       flex: 1;
-      font-size: 0.88rem;
-      color: #D2E1FF;
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #C6D2E6;
     }
 
     .trace-step-row .step-vars {
       display: flex;
-      gap: 0.45rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
     }
 
     .trace-step-row .step-vars span {
-      background: #131C2E;
-      border-radius: 999px;
-      padding: 0.2rem 0.65rem;
+      background: #1A2332;
+      border-radius: 30px;
+      padding: 0.15rem 0.6rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: #E9D5FF;
-      border: 1px solid rgba(159, 107, 255, 0.28);
+      font-size: 0.7rem;
+      color: #E0B0FF;
+      border: 1px solid #2D3C56;
+      transition: all 0.3s ease;
     }
 
-    .workbench-side-panel {
-      background: rgba(7, 11, 18, 0.75);
-      border: 1px solid rgba(148, 179, 232, 0.12);
-      border-radius: 18px;
-      padding: 1.15rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1rem;
+    .trace-step-row.active .step-vars span {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(79, 156, 255, 0.3);
     }
 
-    .stack-frame-box {
-      background: rgba(23, 34, 54, 0.75);
-      border: 1px solid rgba(106, 169, 255, 0.25);
-      border-radius: 12px;
-      padding: 0.85rem;
-    }
-
-    .stack-frame-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
-      color: #93C5FD;
-      margin-bottom: 0.6rem;
-    }
-
-    .stack-active-pill {
-      font-size: 0.65rem;
-      background: rgba(74, 222, 128, 0.16);
-      color: var(--green);
-      padding: 0.12rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(74, 222, 128, 0.35);
-    }
-
-    .stack-vars-list {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-    }
-
-    .stack-var-item {
-      background: #0B111E;
-      border: 1px solid rgba(148, 179, 232, 0.14);
-      padding: 0.3rem 0.7rem;
-      border-radius: 8px;
-      color: #E2E8F0;
-    }
-
-    .workbench-console {
-      background: #060911;
-      border: 1px solid rgba(148, 179, 232, 0.1);
-      border-radius: 12px;
-      padding: 0.75rem 0.9rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: #86EFAC;
-    }
-
-    /* ===== USE CASE SECTION ===== */
+    /* ===== USE CASE ===== */
     .use-case-section {
-      display: grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap: 3.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
       align-items: center;
-      margin: 5.5rem 0;
+      margin: 4rem 0;
+    }
+
+    .use-case-text {
+      flex: 1 1 350px;
     }
 
     .use-case-text h2 {
-      font-size: clamp(1.9rem, 3.5vw, 2.45rem);
+      font-size: 2rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.2rem;
     }
 
     .use-case-text p {
       color: var(--text-dim);
-      margin-bottom: 1.75rem;
-      font-size: 1.02rem;
+      margin-bottom: 1.5rem;
     }
 
     .step-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1.15rem;
+      gap: 1.2rem;
     }
 
     .step-list li {
       display: flex;
       gap: 1rem;
       align-items: flex-start;
-      background: rgba(16, 24, 39, 0.55);
-      border: 1px solid rgba(148, 179, 232, 0.1);
-      padding: 1rem 1.15rem;
-      border-radius: 18px;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .step-list li:hover {
       transform: translateX(6px);
-      border-color: rgba(106, 169, 255, 0.35);
-      background: rgba(23, 34, 54, 0.8);
     }
 
     .step-number {
-      background: linear-gradient(135deg, rgba(79, 156, 255, 0.2), rgba(159, 107, 255, 0.2));
+      background: #1D2A3F;
       border-radius: 12px;
       min-width: 36px;
       height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 0.92rem;
-      color: #93C5FD;
-      border: 1px solid rgba(106, 169, 255, 0.35);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #AACBFF;
+      border: 1px solid #2C3D58;
       transition: all 0.3s ease;
     }
 
     .step-list li:hover .step-number {
-      background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+      background: var(--accent);
       color: white;
-      border-color: transparent;
+      border-color: var(--accent);
+      box-shadow: 0 0 16px rgba(79, 156, 255, 0.5);
     }
 
     .step-list li div {
-      color: #CBD5E1;
+      color: #C6D2E6;
       font-size: 0.95rem;
     }
 
     .use-case-visual {
-      background: linear-gradient(160deg, rgba(16, 24, 39, 0.9), rgba(9, 14, 24, 0.96));
-      border-radius: 28px;
+      flex: 1 1 400px;
+      background: linear-gradient(145deg, #0D1420, #111B2A);
+      border-radius: 32px;
       padding: 1.5rem;
-      border: 1px solid rgba(106, 169, 255, 0.22);
-      box-shadow: 0 28px 52px -20px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      border: 1px solid #24324A;
+      box-shadow: 0 25px 35px -18px black;
+      position: relative;
+      overflow: hidden;
     }
 
     .console-mock {
-      background: #060911;
+      background: #0A0F17;
       border-radius: 18px;
-      padding: 1.25rem;
+      padding: 1rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.84rem;
-      border: 1px solid rgba(148, 179, 232, 0.12);
-      line-height: 1.7;
+      font-size: 0.85rem;
+      border: 1px solid #1F2C42;
     }
 
     .console-mock .output-line {
-      color: #BFDBFE;
+      color: #B0D0FF;
+      opacity: 0;
+      animation: outputReveal 0.5s ease-out forwards;
+    }
+
+    .console-mock .output-line:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .console-mock .output-line:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .console-mock .output-line:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .console-mock .output-line:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+
+    .console-mock .output-line:nth-child(5) {
+      animation-delay: 1.0s;
+    }
+
+    .console-mock .output-line:nth-child(6) {
+      animation-delay: 1.2s;
+    }
+
+    .console-mock .output-line:nth-child(7) {
+      animation-delay: 1.4s;
+    }
+
+    .console-mock .output-line:nth-child(8) {
+      animation-delay: 1.6s;
+    }
+
+    .console-mock .output-line:nth-child(9) {
+      animation-delay: 1.8s;
+    }
+
+    @keyframes outputReveal {
+      from {
+        opacity: 0;
+        transform: translateX(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .console-mock .prompt {
-      color: #64748B;
-      margin-right: 0.45rem;
+      color: #7D8CA8;
     }
 
     .console-mock .success {
-      color: var(--green);
-      margin-top: 0.35rem;
+      color: #6BE3A3;
     }
 
     /* ===== DOCS SECTION ===== */
     .docs-section {
-      margin: 5.5rem 0;
+      margin: 5rem 0;
     }
 
     .docs-tabs {
-      display: inline-flex;
-      gap: 0.4rem;
-      margin: 0 auto 2rem;
-      padding: 0.4rem;
-      background: rgba(13, 20, 34, 0.85);
-      border: 1px solid rgba(148, 179, 232, 0.14);
-      border-radius: 999px;
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
       justify-content: center;
     }
 
-    .docs-tabs-wrapper {
-      display: flex;
-      justify-content: center;
-    }
-
     .docs-tab {
-      background: transparent;
-      border: none;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid #2A3448;
       color: var(--text-dim);
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
+      padding: 0.6rem 1.5rem;
+      border-radius: 60px;
       font-weight: 600;
       font-size: 0.9rem;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
     }
 
     .docs-tab.active {
-      background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+      background: rgba(79, 156, 255, 0.15);
+      border-color: var(--accent);
       color: white;
-      box-shadow: 0 6px 18px -4px rgba(59, 130, 246, 0.55);
+      box-shadow: 0 0 20px rgba(79, 156, 255, 0.2);
     }
 
-    .docs-tab:not(.active):hover {
+    .docs-tab:hover {
+      border-color: var(--accent);
       color: white;
-      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
     }
 
     .docs-content {
-      background: var(--surface);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(18, 26, 38, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid var(--border);
       border-radius: 28px;
       padding: 2.5rem;
-      box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
     .docs-pane {
@@ -1359,13 +1345,13 @@
 
     .docs-pane.active {
       display: block;
-      animation: paneReveal 0.35s ease-out;
+      animation: paneReveal 0.4s ease-out;
     }
 
     @keyframes paneReveal {
       from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(10px);
       }
 
       to {
@@ -1375,117 +1361,63 @@
     }
 
     .docs-pane h3 {
-      font-size: 1.45rem;
-      font-weight: 800;
-      margin-bottom: 0.85rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
       color: var(--text);
     }
 
     .docs-pane h4 {
-      font-size: 1.06rem;
-      font-weight: 700;
-      margin: 1.5rem 0 0.6rem;
-      color: #93C5FD;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+      color: #AACBFF;
     }
 
     .docs-pane p {
       color: var(--text-dim);
       font-size: 0.95rem;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
     }
 
     .docs-pane code {
-      background: #080D17;
-      border: 1px solid rgba(148, 179, 232, 0.16);
+      background: #0A0F17;
+      border: 1px solid #1F2C42;
       border-radius: 6px;
       padding: 0.15rem 0.45rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.84rem;
-      color: #86EFAC;
-    }
-
-    .code-wrap {
-      position: relative;
-      margin: 1rem 0;
-    }
-
-    .copy-code-btn {
-      position: absolute;
-      top: 0.7rem;
-      right: 0.7rem;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(148, 179, 232, 0.2);
-      color: #CBD5E1;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.3rem 0.7rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .copy-code-btn:hover {
-      background: rgba(79, 156, 255, 0.22);
-      border-color: var(--accent);
-      color: white;
+      font-size: 0.85rem;
+      color: #A5E6A5;
     }
 
     .docs-pane pre {
-      background: #070B14;
-      border: 1px solid rgba(148, 179, 232, 0.15);
-      border-radius: 14px;
+      background: #0A0F17;
+      border: 1px solid #1F2C42;
+      border-radius: 12px;
       padding: 1.25rem;
       overflow-x: auto;
+      margin: 1rem 0;
     }
 
     .docs-pane pre code {
       background: transparent;
       border: none;
       padding: 0;
-      color: #C7D8F8;
+      color: #B0C8FF;
       font-size: 0.85rem;
-      line-height: 1.65;
-    }
-
-    .shortcut-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 0.75rem;
-      margin: 1rem 0;
-    }
-
-    .shortcut-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #080D17;
-      border: 1px solid rgba(148, 179, 232, 0.12);
-      padding: 0.75rem 1rem;
-      border-radius: 12px;
-      font-size: 0.88rem;
-      color: #CBD5E1;
-    }
-
-    kbd {
-      background: #172236;
-      border: 1px solid rgba(148, 179, 232, 0.28);
-      border-bottom-width: 2px;
-      border-radius: 6px;
-      padding: 0.18rem 0.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
-      color: #93C5FD;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
     }
 
     .docs-pane .note {
       background: rgba(79, 156, 255, 0.08);
       border-left: 3px solid var(--accent);
-      border-radius: 0 12px 12px 0;
+      border-radius: 0 10px 10px 0;
       padding: 1rem 1.25rem;
       margin: 1.25rem 0;
-      font-size: 0.92rem;
-      color: #D2E1FF;
+      font-size: 0.9rem;
+      color: #C6D2E6;
     }
 
     .docs-pane .note i {
@@ -1498,43 +1430,54 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
-      margin: 2.5rem 0;
-      padding: 1.15rem 2rem;
-      background: rgba(245, 130, 32, 0.06);
-      border-radius: 999px;
-      border: 1px dashed rgba(245, 130, 32, 0.3);
+      margin: 2rem 0;
+      padding: 1.25rem 2rem;
+      background: rgba(245, 130, 32, 0.04);
+      border-radius: 20px;
+      border: 1px dashed rgba(245, 130, 32, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .jntu-strip:hover {
+      border-color: rgba(245, 130, 32, 0.5);
+      background: rgba(245, 130, 32, 0.07);
     }
 
     .jntu-strip .strip-item {
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--text-dim);
+      transition: color 0.2s ease;
+    }
+
+    .jntu-strip .strip-item:hover {
+      color: var(--text);
     }
 
     .jntu-strip .strip-item i {
-      color: var(--orange-bright);
+      color: var(--orange);
       font-size: 1rem;
     }
 
     .jntu-strip .strip-item strong {
-      color: var(--orange-bright);
+      color: var(--orange);
     }
 
-    /* ===== DOWNLOAD SECTION ===== */
+    /* ===== DOWNLOAD ===== */
     .download-section {
-      background: linear-gradient(160deg, rgba(20, 30, 48, 0.88), rgba(10, 15, 26, 0.96));
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-radius: 36px;
-      padding: 3.5rem 2rem;
-      margin: 3.5rem 0 2rem;
-      border: 1px solid rgba(106, 169, 255, 0.25);
+      background: rgba(18, 26, 38, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      padding: 3rem 2rem;
+      margin: 4rem 0 2rem;
+      border: 1px solid #28344A;
       text-align: center;
-      box-shadow: 0 32px 64px -24px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      box-shadow: 0 30px 40px -20px black;
       position: relative;
       overflow: hidden;
     }
@@ -1542,28 +1485,27 @@
     .download-section::before {
       content: '';
       position: absolute;
-      top: -45%;
+      top: -40%;
       left: 50%;
       transform: translateX(-50%);
-      width: 560px;
-      height: 560px;
-      background: radial-gradient(circle, rgba(245, 130, 32, 0.14), rgba(79, 156, 255, 0.08), transparent 70%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(245, 130, 32, 0.1), transparent 70%);
       border-radius: 50%;
       pointer-events: none;
+      animation: orbFloat 10s ease-in-out infinite alternate;
     }
 
     .download-section h2 {
-      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-size: 2.2rem;
       font-weight: 900;
-      letter-spacing: -0.03em;
       margin-bottom: 0.75rem;
       position: relative;
     }
 
-    .download-section > p {
+    .download-section>p {
       color: var(--text-dim);
-      margin-bottom: 2.25rem;
-      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
       position: relative;
     }
 
@@ -1571,166 +1513,106 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.25rem;
+      gap: 1.2rem;
       margin-bottom: 2rem;
       position: relative;
     }
 
     .download-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(148, 179, 232, 0.22);
-      border-radius: 22px;
-      padding: 1.15rem 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid #2A384E;
+      border-radius: 80px;
+      padding: 1rem 2.2rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-weight: 700;
+      font-weight: 600;
       color: white;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
       font-size: 1.05rem;
-      min-width: 215px;
+      min-width: 180px;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      text-decoration: none;
     }
 
-    .download-btn.recommended {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.22), rgba(139, 92, 246, 0.22));
-      border-color: rgba(106, 169, 255, 0.65);
-      box-shadow: 0 14px 32px -12px rgba(79, 156, 255, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(79, 156, 255, 0.15), rgba(245, 130, 32, 0.15));
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .os-meta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      line-height: 1.2;
+    .download-btn:hover::before {
+      opacity: 1;
     }
 
-    .os-sub {
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--text-dim);
-      margin-top: 2px;
-    }
-
-    .download-btn.recommended .os-sub {
-      color: var(--green);
-      font-weight: 600;
+    .download-btn>* {
+      position: relative;
+      z-index: 1;
     }
 
     .download-btn i {
-      font-size: 1.75rem;
+      font-size: 1.6rem;
       color: #6AA9FF;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .download-btn:hover {
       border-color: var(--accent);
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 18px 36px -12px rgba(79, 156, 255, 0.55);
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 15px 30px -12px var(--accent);
     }
 
     .download-btn:hover i {
-      color: var(--orange-bright);
-      transform: scale(1.1) rotate(-6deg);
+      color: var(--orange);
+      transform: rotate(-8deg) scale(1.1);
     }
 
     .download-note {
-      font-size: 0.85rem;
-      color: var(--text-dim);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
       position: relative;
     }
 
     .download-note .JSpiders-highlight {
-      color: var(--orange-bright);
-      font-weight: 700;
-    }
-
-    /* ===== TOAST NOTIFICATION ===== */
-    .toast-container {
-      position: fixed;
-      bottom: 1.75rem;
-      right: 1.75rem;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      pointer-events: none;
-    }
-
-    .toast {
-      background: rgba(16, 24, 39, 0.95);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(245, 130, 32, 0.45);
-      border-left: 4px solid var(--orange);
-      color: var(--text);
-      padding: 0.95rem 1.35rem;
-      border-radius: 16px;
-      font-size: 0.9rem;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.85);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      animation: toastIn 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
-      pointer-events: auto;
-    }
-
-    @keyframes toastIn {
-      from {
-        opacity: 0;
-        transform: translateY(16px) scale(0.96);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      color: var(--orange);
+      font-weight: 600;
     }
 
     /* ===== FOOTER ===== */
     .footer {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 1.25rem;
-      padding: 2rem 0 1.25rem;
+      gap: 1rem;
+      padding: 2rem 0 1rem;
       color: var(--text-muted);
-      font-size: 0.88rem;
-      border-top: 1px solid rgba(148, 179, 232, 0.1);
-      margin-top: 2rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #1A2332;
+      margin-top: 1.5rem;
     }
 
     .footer .JSpiders-link {
-      color: var(--orange-bright);
-      font-weight: 700;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.75rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
+      color: var(--orange);
+      font-weight: 600;
       cursor: pointer;
       transition: color 0.2s ease;
     }
 
-    .footer-links span:hover {
-      color: var(--text);
+    .footer .JSpiders-link:hover {
+      color: #FF9E4A;
     }
 
+    /* ===== ANIMATIONS ===== */
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(28px);
+        transform: translateY(30px);
       }
 
       to {
@@ -1740,11 +1622,21 @@
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 960px) {
-      .hero,
-      .use-case-section,
-      .workbench-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        position: relative;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 1.2rem;
+      }
+
+      .hero {
+        flex-direction: column;
+        padding-top: 0.5rem;
       }
 
       .hero-content {
@@ -1756,26 +1648,22 @@
         margin-right: auto;
       }
 
-      .hero-cta,
-      .hero-trust-pills {
+      .hero-cta {
         justify-content: center;
       }
-    }
 
-    @media (max-width: 768px) {
-      .navbar-wrap {
-        position: relative;
-        top: 0;
-      }
-
-      .navbar {
-        border-radius: 24px;
+      .use-case-section {
         flex-direction: column;
       }
 
-      .nav-links {
-        justify-content: center;
-        gap: 1.15rem;
+      .download-btn {
+        min-width: 140px;
+        padding: 0.9rem 1.2rem;
+        font-size: 0.95rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
       }
 
       .JSpiders-banner {
@@ -1791,30 +1679,46 @@
       .docs-content {
         padding: 1.5rem;
       }
-
-      .jntu-strip {
-        border-radius: 20px;
-      }
     }
 
     @media (max-width: 480px) {
       .container {
-        padding: 0 1rem 1.5rem;
+        padding: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
       }
 
       .download-buttons {
         flex-direction: column;
+        align-items: stretch;
       }
 
       .download-btn {
-        width: 100%;
+        justify-content: center;
+      }
+
+      .JSpiders-stats {
+        gap: 1.5rem;
+      }
+
+      .trace-step-row {
+        flex-wrap: wrap;
+      }
+
+      .JSpiders-banner h2 {
+        font-size: 1.4rem;
+      }
+
+      .download-section h2 {
+        font-size: 1.8rem;
       }
     }
 
     /* ===== CUSTOM SCROLLBAR ===== */
     ::-webkit-scrollbar {
       width: 8px;
-      height: 8px;
     }
 
     ::-webkit-scrollbar-track {
@@ -1822,46 +1726,41 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #23324D;
-      border-radius: 999px;
+      background: #2A3850;
+      border-radius: 20px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #3B5582;
+      background: #3F5A7A;
     }
   </style>
 </head>
 
 <body>
   <div class="bg-glow"></div>
-  <div class="cursor-aura" id="cursorAura"></div>
   <div class="bg-particles" id="particles"></div>
   <div class="bg-grid"></div>
-  <div class="toast-container" id="toastContainer"></div>
 
   <div class="container">
-    <!-- Floating Glass Navigation -->
-    <div class="navbar-wrap">
-      <header class="navbar" id="navbar">
-        <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-          <div class="logo-icon-box"><i class="fas fa-code"></i></div>
-          <span class="brand-name">JTrace <span class="JSpiders-badge">By Prem Shahane</span></span>
-        </div>
-        <nav class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#trace">Trace</a>
-          <a href="#docs">Docs</a>
-          <a href="#download" class="btn-nav-download"><i class="fas fa-download"></i> Download</a>
-        </nav>
-      </header>
-    </div>
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+      <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-code"></i>
+        <span>JTrace <span class="JSpiders-badge">By Prem Shahane</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#trace">Trace</a>
+        <a href="#docs">Docs</a>
+        <a href="#download" class="btn-outline"><i class="fas fa-download" style="margin-right: 6px;"></i> Download</a>
+      </div>
+    </header>
 
     <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
         <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          v2.4 · Trace &amp; execute Java
+          <i class="fas fa-bolt"></i> v2.4 · Trace & execute Java
           <span class="sponsor">· JSpiders JNTU</span>
         </div>
         <h1>
@@ -1873,62 +1772,36 @@
           line‑by‑line tracing, variable inspection, and a beautiful console — all without leaving your flow.
         </p>
         <div class="hero-cta">
-          <button class="btn-primary" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">
-            <i class="fas fa-rocket"></i> Get started free
-          </button>
-          <button class="btn-secondary-hero" onclick="document.getElementById('trace').scrollIntoView({behavior:'smooth'})">
-            <i class="fas fa-play-circle"></i> Explore live trace
-          </button>
-        </div>
-        <div class="hero-trust-pills">
-          <span><i class="fas fa-check-circle"></i> Bundled JDK 17+</span>
-          <span><i class="fas fa-shield-alt"></i> 100% Offline</span>
-          <span><i class="fas fa-bolt"></i> Zero Config</span>
+          <button class="btn-primary"
+            onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})"><i
+              class="fas fa-rocket"></i> Get started free</button>
         </div>
       </div>
-
-      <!-- Interactive Live Hero Tracer -->
       <div class="hero-visual">
-        <div class="hero-orb-behind"></div>
-        <div class="floating-card" id="heroCard">
+        <div class="floating-card">
           <div class="card-header">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
             <span class="title">Main.java</span>
-            <span class="jntu-tag">JNTU LIVE TRACE</span>
+            <span class="jntu-tag">JNTU</span>
           </div>
-
-          <div class="hero-code-block" id="heroCodeBlock">
-            <div class="code-line" data-line="1"><span class="line-num">1</span><span class="line-code"><span class="keyword">public class</span> <span class="type">Main</span> {</span></div>
-            <div class="code-line" data-line="2"><span class="line-num">2</span><span class="line-code">  <span class="keyword">public static void</span> main(<span class="type">String</span>[] args) {</span></div>
-            <div class="code-line" data-line="3"><span class="line-num">3</span><span class="line-code">    System.out.println(<span class="string">"Hello from bundled Java!"</span>);</span></div>
-            <div class="code-line" data-line="4"><span class="line-num">4</span><span class="line-code">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="num">0</span>; i &lt; <span class="num">3</span>; i++) {</span></div>
-            <div class="code-line" data-line="5"><span class="line-num">5</span><span class="line-code">      System.out.println(<span class="string">"i = "</span> + i);</span></div>
-            <div class="code-line" data-line="6"><span class="line-num">6</span><span class="line-code">    }</span></div>
-            <div class="code-line" data-line="7"><span class="line-num">7</span><span class="line-code">  }</span></div>
-            <div class="code-line" data-line="8"><span class="line-num">8</span><span class="line-code">}</span></div>
-          </div>
-
-          <div class="hero-inspector">
-            <div class="inspector-top">
-              <div class="inspector-status" id="heroStepLabel">
-                <i class="fas fa-crosshairs"></i> STEP 1/9 · LINE 3
-              </div>
-              <div class="trace-controls">
-                <button class="trace-btn" id="heroPrevBtn" title="Previous step"><i class="fas fa-step-backward"></i></button>
-                <button class="trace-btn playing" id="heroPlayBtn" title="Play / Pause auto-trace"><i class="fas fa-pause"></i></button>
-                <button class="trace-btn" id="heroNextBtn" title="Next step"><i class="fas fa-step-forward"></i></button>
-              </div>
-            </div>
-            <div class="trace-demo" id="heroVarChips">
-              <div class="var-chip"><i class="fas fa-cube"></i> args = <span class="val">String[0]</span></div>
-              <div class="var-chip"><i class="fas fa-arrow-right"></i> line 3</div>
-            </div>
-            <div class="hero-mini-stdout">
-              <span class="stdout-label">Console Output</span>
-              <div id="heroStdoutText">Hello from bundled Java!</div>
-            </div>
+          <div class="code-line"><span class="line-num">1</span><span class="line-code"><span class="keyword">public
+                class</span> Main {</span></div>
+          <div class="code-line"><span class="line-num">2</span><span class="line-code"> <span class="keyword">public
+                static void</span> main(String[] args) {</span></div>
+          <div class="code-line"><span class="line-num">3</span><span class="line-code"> System.out.println(<span
+                class="string">"Hello from bundled Java!"</span>);</span></div>
+          <div class="code-line"><span class="line-num">4</span><span class="line-code"> <span
+                class="keyword">for</span> (<span class="keyword">int</span> i = 0; i &lt; 5; i++) {</span></div>
+          <div class="code-line"><span class="line-num">5</span><span class="line-code"> System.out.println(<span
+                class="string">"i = "</span> + i);</span></div>
+          <div class="code-line"><span class="line-num">6</span><span class="line-code"> }</span></div>
+          <div class="code-line"><span class="line-num">7</span><span class="line-code"> }</span></div>
+          <div class="code-line"><span class="line-num">8</span><span class="line-code">}</span></div>
+          <div class="trace-demo">
+            <div class="var-chip"><i class="fas fa-cube"></i> i = <span class="val">2</span></div>
+            <div class="var-chip"><i class="fas fa-arrow-right"></i> line 5</div>
           </div>
         </div>
       </div>
@@ -1959,16 +1832,13 @@
 
     <!-- Features -->
     <section id="features">
-      <div class="section-header-center reveal">
-        <div class="section-eyebrow"><i class="fas fa-sparkles"></i> Core Capabilities</div>
-        <h2 class="section-title">Everything you need to master Java</h2>
-        <p class="section-subtitle">Built with love by JSpiders JNTU — the same tool we use to train thousands of students every year.</p>
-      </div>
-
+      <h2 class="section-title reveal">Everything you need to master Java</h2>
+      <p class="section-subtitle reveal reveal-delay-1">Built with love by JSpiders JNTU — the same tool we use to train
+        thousands of students every year.</p>
       <div class="features-grid">
-        <div class="spotlight-card feature-card reveal reveal-delay-1">
+        <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-          <h3>Instant compile &amp; run</h3>
+          <h3>Instant compile & run</h3>
           <p>Bundled OpenJDK. No setup. Run any Java code in seconds, even offline.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Bundled JDK 17+ included</li>
@@ -1976,7 +1846,7 @@
             <li><i class="fas fa-check-circle"></i> Works on Mac, Windows, Linux</li>
           </ul>
         </div>
-        <div class="spotlight-card feature-card reveal reveal-delay-2">
+        <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon"><i class="fas fa-shoe-prints"></i></div>
           <h3>Step‑by‑step trace</h3>
           <p>Watch variables change, loops iterate, and methods return in real time.</p>
@@ -1986,19 +1856,19 @@
             <li><i class="fas fa-check-circle"></i> Call stack visualization</li>
           </ul>
         </div>
-        <div class="spotlight-card feature-card reveal reveal-delay-3">
+        <div class="feature-card reveal reveal-delay-3">
           <div class="feature-icon"><i class="fas fa-palette"></i></div>
           <h3>Beautiful console</h3>
           <p>Rich output, error highlighting, and a clean UI that stays out of your way.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Syntax‑highlighted errors</li>
             <li><i class="fas fa-check-circle"></i> Line numbers on failures</li>
-            <li><i class="fas fa-check-circle"></i> Scrollback &amp; copy support</li>
+            <li><i class="fas fa-check-circle"></i> Scrollback & copy support</li>
           </ul>
         </div>
-        <div class="spotlight-card feature-card reveal reveal-delay-4">
+        <div class="feature-card reveal reveal-delay-4">
           <div class="feature-icon"><i class="fas fa-save"></i></div>
-          <h3>Auto‑save &amp; sidebar</h3>
+          <h3>Auto‑save & sidebar</h3>
           <p>All your programs stay organized with automatic saving and quick access.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Debounced auto‑save</li>
@@ -2006,19 +1876,19 @@
             <li><i class="fas fa-check-circle"></i> Recent programs list</li>
           </ul>
         </div>
-        <div class="spotlight-card feature-card reveal reveal-delay-5">
+        <div class="feature-card reveal reveal-delay-5">
           <div class="feature-icon"><i class="fas fa-keyboard"></i></div>
           <h3>Smart stdin handling</h3>
           <p>Programs that read from System.in automatically get a prompt for input.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Auto‑detects Scanner/BufferedReader</li>
             <li><i class="fas fa-check-circle"></i> Multi‑line input dialog</li>
-            <li><i class="fas fa-check-circle"></i> Works with native &amp; isolate runners</li>
+            <li><i class="fas fa-check-circle"></i> Works with native & isolate runners</li>
           </ul>
         </div>
-        <div class="spotlight-card feature-card reveal reveal-delay-6">
+        <div class="feature-card reveal reveal-delay-6">
           <div class="feature-icon"><i class="fas fa-moon"></i></div>
-          <h3>Dark &amp; light themes</h3>
+          <h3>Dark & light themes</h3>
           <p>Easy on the eyes, day or night. Toggle with a single click.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> System theme detection</li>
@@ -2031,90 +1901,69 @@
 
     <!-- Trace Section -->
     <section id="trace" class="trace-section">
-      <div class="section-header-center reveal">
-        <div class="section-eyebrow"><i class="fas fa-microchip"></i> Execution Engine</div>
-        <h2 class="section-title">Trace like a pro</h2>
-        <p class="section-subtitle">See exactly what happens at each line. Click any step below to inspect variables, call frames, and console replay.</p>
-      </div>
+      <h2 class="section-title reveal">Trace like a pro</h2>
+      <p class="section-subtitle reveal reveal-delay-1">See exactly what happens at each line. Hover over variables,
+        watch loops, and never guess again.</p>
 
       <div class="trace-grid">
-        <div class="spotlight-card trace-card reveal reveal-delay-1">
+        <div class="trace-card reveal reveal-delay-1">
           <div class="trace-icon"><i class="fas fa-list-ol"></i></div>
           <h3>Line‑by‑line execution</h3>
-          <p>Every statement is recorded. Step forward and backward through your program's history with full fidelity.</p>
+          <p>Every statement is recorded. Step forward and backward through your program's history with full fidelity.
+          </p>
         </div>
-        <div class="spotlight-card trace-card reveal reveal-delay-2">
+        <div class="trace-card reveal reveal-delay-2">
           <div class="trace-icon"><i class="fas fa-cubes"></i></div>
           <h3>Live variable state</h3>
           <p>See the exact value of every local variable, argument, and array element at each step.</p>
         </div>
-        <div class="spotlight-card trace-card reveal reveal-delay-3">
+        <div class="trace-card reveal reveal-delay-3">
           <div class="trace-icon"><i class="fas fa-layer-group"></i></div>
           <h3>Call stack visualization</h3>
           <p>Watch methods push and pop in real time. Completed frames show their return values.</p>
         </div>
-        <div class="spotlight-card trace-card reveal reveal-delay-4">
+        <div class="trace-card reveal reveal-delay-4">
           <div class="trace-icon"><i class="fas fa-terminal"></i></div>
           <h3>Console output replay</h3>
           <p>The console panel shows accumulated output up to the current step — no more guessing what printed when.</p>
         </div>
-        <div class="spotlight-card trace-card reveal reveal-delay-5">
+        <div class="trace-card reveal reveal-delay-5">
           <div class="trace-icon"><i class="fas fa-search"></i></div>
           <h3>Loop condition tracking</h3>
-          <p>For and while loop conditions are highlighted, and you can see exactly when they evaluate to true or false.</p>
+          <p>For and while loop conditions are highlighted, and you can see exactly when they evaluate to true or false.
+          </p>
         </div>
-        <div class="spotlight-card trace-card reveal reveal-delay-6">
+        <div class="trace-card reveal reveal-delay-6">
           <div class="trace-icon"><i class="fas fa-undo-alt"></i></div>
           <h3>Return value resolution</h3>
           <p>When a method returns, its return value is resolved and displayed on the completed frame.</p>
         </div>
       </div>
 
-      <!-- Interactive 3-Pane Trace Workbench -->
-      <div class="trace-workbench reveal">
-        <div class="workbench-header">
-          <div class="workbench-title" id="wbTitle">
-            <i class="fas fa-wave-square"></i> TRACE · STEP 10/18 · MAIN.MAIN()
-          </div>
-          <span style="color: var(--text-dim); font-size: 0.82rem;"><i class="fas fa-hand-pointer" style="color: var(--accent);"></i> Click any step row to scrub state</span>
+      <div class="trace-visual-demo reveal">
+        <div
+          style="font-size: 0.75rem; color: #6AA9FF; letter-spacing: 0.5px; margin-bottom: 0.75rem; font-weight: 600;">
+          TRACE · STEP 12/18 · MAIN.MAIN()</div>
+        <div class="trace-step-row" data-step="0">
+          <span class="step-badge">#10</span>
+          <span class="step-desc">i = 2 · line 4 (for condition: true)</span>
+          <div class="step-vars"><span>i = 2</span></div>
         </div>
-
-        <div class="workbench-grid">
-          <div class="trace-step-list" id="traceStepList">
-            <div class="trace-step-row active" data-step="0">
-              <span class="step-badge">#10</span>
-              <span class="step-desc">for (i &lt; 5) → true · line 4</span>
-              <div class="step-vars"><span>i = 2</span></div>
-            </div>
-            <div class="trace-step-row" data-step="1">
-              <span class="step-badge">#11</span>
-              <span class="step-desc">println("i = " + i) · line 5</span>
-              <div class="step-vars"><span>i = 2</span><span>stdout +1</span></div>
-            </div>
-            <div class="trace-step-row" data-step="2">
-              <span class="step-badge">#12</span>
-              <span class="step-desc">i++ (increment) · line 4</span>
-              <div class="step-vars"><span>i = 3</span></div>
-            </div>
-          </div>
-
-          <div class="workbench-side-panel">
-            <div class="stack-frame-box">
-              <div class="stack-frame-header">
-                <span><i class="fas fa-layer-group"></i> Main.main(String[])</span>
-                <span class="stack-active-pill" id="wbLineBadge">LINE 4</span>
-              </div>
-              <div class="stack-vars-list" id="wbVarsList">
-                <div class="stack-var-item">args = String[0]</div>
-                <div class="stack-var-item" style="border-color: var(--accent); color: #93C5FD;">i = 2</div>
-              </div>
-            </div>
-            <div class="workbench-console" id="wbConsole">
-              &gt; Hello from bundled Java!<br>
-              &gt; i = 0<br>
-              &gt; i = 1
-            </div>
-          </div>
+        <div class="trace-step-row" data-step="1">
+          <span class="step-badge">#11</span>
+          <span class="step-desc">println("i = " + i) · line 5</span>
+          <div class="step-vars"><span>i = 2</span><span>output: "i = 2\n"</span></div>
+        </div>
+        <div class="trace-step-row" data-step="2">
+          <span class="step-badge">#12</span>
+          <span class="step-desc">i++ · line 4</span>
+          <div class="step-vars"><span>i = 3</span></div>
+        </div>
+        <div
+          style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #1F2C42; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+          <span style="color: #5C6E8A; font-size: 0.8rem;"><i class="fas fa-mouse-pointer"></i> Hover to scrub</span>
+          <span style="color: #5C6E8A; font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> <i
+              class="fas fa-arrow-right"></i> Step controls</span>
         </div>
       </div>
     </section>
@@ -2122,7 +1971,6 @@
     <!-- Use case / demo section -->
     <section class="use-case-section">
       <div class="use-case-text reveal">
-        <div class="section-eyebrow"><i class="fas fa-graduation-cap"></i> Built for Learners</div>
         <h2>From beginner to pro,<br>we've got you covered.</h2>
         <p>JSpiders JNTU students use JTrace to understand complex programs, debug assignments, and prepare for
           interviews.</p>
@@ -2144,8 +1992,8 @@
       </div>
       <div class="use-case-visual reveal reveal-delay-2">
         <div class="console-mock">
-          <div class="output-line"><span class="prompt">$</span>javac Main.java</div>
-          <div class="output-line"><span class="prompt">$</span>java Main</div>
+          <div class="output-line"><span class="prompt">$</span> javac Main.java</div>
+          <div class="output-line"><span class="prompt">$</span> java Main</div>
           <div class="output-line">Hello from bundled Java!</div>
           <div class="output-line">i = 0</div>
           <div class="output-line">i = 1</div>
@@ -2153,11 +2001,13 @@
           <div class="output-line">i = 3</div>
           <div class="output-line">i = 4</div>
           <div class="output-line success"><i class="fas fa-check-circle"></i> Process finished with exit code 0</div>
-          <div style="margin-top: 1rem; border-top: 1px solid rgba(148,179,232,0.12); padding-top: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-            <span style="color: #6AA9FF; font-size: 0.76rem; font-weight: 700;">TRACE · step 12/18</span>
-            <div style="display: flex; gap: 0.6rem;">
-              <span style="background: #131D2E; border: 1px solid rgba(106,169,255,0.25); padding: 0.2rem 0.75rem; border-radius: 999px; color: #BFDBFE; font-size: 0.76rem;">i = 3</span>
-              <span style="background: #131D2E; border: 1px solid rgba(106,169,255,0.25); padding: 0.2rem 0.75rem; border-radius: 999px; color: #BFDBFE; font-size: 0.76rem;">line 5</span>
+          <div style="margin-top: 1rem; border-top: 1px solid #1F2C42; padding-top: 0.8rem;">
+            <div style="color: #6AA9FF; font-size: 0.75rem; letter-spacing: 0.3px;">TRACE · step 12/18</div>
+            <div style="display: flex; gap: 1rem; margin-top: 0.6rem;">
+              <span style="background: #1D2A3F; padding: 0.2rem 0.8rem; border-radius: 30px; color: #B0D0FF;">i =
+                3</span>
+              <span style="background: #1D2A3F; padding: 0.2rem 0.8rem; border-radius: 30px; color: #B0D0FF;">line
+                5</span>
             </div>
           </div>
         </div>
@@ -2166,19 +2016,15 @@
 
     <!-- Docs Section -->
     <section id="docs" class="docs-section">
-      <div class="section-header-center reveal">
-        <div class="section-eyebrow"><i class="fas fa-book-open"></i> Guides &amp; Reference</div>
-        <h2 class="section-title">Documentation</h2>
-        <p class="section-subtitle">Everything you need to get up and running with JTrace — maintained by the JSpiders JNTU team.</p>
-      </div>
+      <h2 class="section-title reveal">Documentation</h2>
+      <p class="section-subtitle reveal reveal-delay-1">Everything you need to get up and running with JTrace —
+        maintained by the JSpiders JNTU team.</p>
 
-      <div class="docs-tabs-wrapper reveal">
-        <div class="docs-tabs">
-          <button class="docs-tab active" data-tab="quickstart">Quick Start</button>
-          <button class="docs-tab" data-tab="tracing">Tracing</button>
-          <button class="docs-tab" data-tab="shortcuts">Shortcuts</button>
-          <button class="docs-tab" data-tab="faq">FAQ</button>
-        </div>
+      <div class="docs-tabs reveal">
+        <button class="docs-tab active" data-tab="quickstart">Quick Start</button>
+        <button class="docs-tab" data-tab="tracing">Tracing</button>
+        <button class="docs-tab" data-tab="shortcuts">Shortcuts</button>
+        <button class="docs-tab" data-tab="faq">FAQ</button>
       </div>
 
       <div class="docs-content reveal">
@@ -2198,14 +2044,11 @@
           <h4>3. Write or paste Java code</h4>
           <p>Replace the default code with your own Java program. Make sure your file contains a <code>main</code>
             method:</p>
-          <div class="code-wrap">
-            <button class="copy-code-btn" onclick="copyCodeSnippet(this)"><i class="fas fa-copy"></i> Copy</button>
-            <pre><code>public class Main {
+          <pre><code>public class Main {
     public static void main(String[] args) {
         System.out.println("Hello, JTrace!");
     }
 }</code></pre>
-          </div>
 
           <div class="note">
             <i class="fas fa-info-circle"></i> <strong>Package declarations are not supported.</strong> Keep your
@@ -2232,12 +2075,12 @@
 
           <h4>The trace screen layout</h4>
           <p>The trace screen has three main panels:</p>
-          <ul style="color: var(--text-dim); font-size: 0.95rem; margin-left: 1.5rem; margin-bottom: 1rem;">
-            <li style="margin-bottom: 0.45rem;"><strong style="color: #E2E8F0;">Code panel (left)</strong> — shows your
+          <ul style="color: #9AA6B8; font-size: 0.95rem; margin-left: 1.5rem; margin-bottom: 1rem;">
+            <li style="margin-bottom: 0.4rem;"><strong style="color: #C6D2E6;">Code panel (left)</strong> — shows your
               source with the current line highlighted</li>
-            <li style="margin-bottom: 0.45rem;"><strong style="color: #E2E8F0;">Console panel (bottom‑left)</strong> —
+            <li style="margin-bottom: 0.4rem;"><strong style="color: #C6D2E6;">Console panel (bottom‑left)</strong> —
               accumulated output up to the current step</li>
-            <li><strong style="color: #E2E8F0;">Frames panel (right)</strong> — call stack with live variable values
+            <li><strong style="color: #C6D2E6;">Frames panel (right)</strong> — call stack with live variable values
             </li>
           </ul>
 
@@ -2265,21 +2108,17 @@
           <p>Work faster with these shortcuts. (Coming soon — we're actively adding more.)</p>
 
           <h4>Editor</h4>
-          <div class="shortcut-grid">
-            <div class="shortcut-item"><span>Save program</span><kbd>Ctrl / Cmd + S</kbd></div>
-            <div class="shortcut-item"><span>Run console</span><kbd>Ctrl / Cmd + Enter</kbd></div>
-            <div class="shortcut-item"><span>Trace step-by-step</span><kbd>Ctrl / Cmd + Shift + Enter</kbd></div>
-            <div class="shortcut-item"><span>Format code</span><kbd>Ctrl / Cmd + F</kbd></div>
-            <div class="shortcut-item"><span>Toggle comment</span><kbd>Ctrl / Cmd + /</kbd></div>
-          </div>
+          <pre><code>Ctrl / Cmd + S      Save program (manual)
+Ctrl / Cmd + Enter  Run console
+Ctrl / Cmd + Shift + Enter  Trace step-by-step
+Ctrl / Cmd + F      Format code
+Ctrl / Cmd + /      Toggle comment</code></pre>
 
           <h4>Trace screen</h4>
-          <div class="shortcut-grid">
-            <div class="shortcut-item"><span>Previous / next step</span><kbd>← / →</kbd></div>
-            <div class="shortcut-item"><span>Jump to first / last step</span><kbd>Home / End</kbd></div>
-            <div class="shortcut-item"><span>Play / pause auto‑trace</span><kbd>Space</kbd></div>
-            <div class="shortcut-item"><span>Exit trace screen</span><kbd>Esc</kbd></div>
-          </div>
+          <pre><code>← / →               Previous / next step
+Home / End          Jump to first / last step
+Space               Play / pause auto‑trace
+Esc                 Exit trace screen</code></pre>
 
           <div class="note">
             <i class="fas fa-info-circle"></i> Shortcuts are being expanded. Check back soon for a full list, or open an
@@ -2330,41 +2169,30 @@
 
     <!-- JNTU Strip -->
     <div class="jntu-strip reveal">
-      <div class="strip-item"><i class="fas fa-graduation-cap"></i> <strong>JSpiders JNTU</strong> — Empowering Java developers</div>
+      <div class="strip-item"><i class="fas fa-graduation-cap"></i> <strong>JSpiders JNTU</strong> — Empowering Java
+        developers</div>
       <div class="strip-item"><i class="fas fa-users"></i> 50,000+ alumni placed</div>
-      <div class="strip-item"><i class="fas fa-code-branch"></i> Built for clean Java mastery</div>
     </div>
 
     <!-- Download section -->
     <section class="download-section reveal" id="download">
       <h2>Ready to run Java?</h2>
       <p>Download JTrace for your platform. Free, offline, and fully featured — brought to you by <strong
-          style="color: var(--orange-bright);">JSpiders JNTU</strong>.</p>
+          style="color: #F58220;">JSpiders JNTU</strong>.</p>
       <div class="download-buttons">
-        <a class="download-btn" id="btnMac"
+
+        <a class="download-btn"
           href="https://www.dropbox.com/scl/fi/qg7vp1p6dh40iycg7kz10/JTrace.dmg?rlkey=zkaxnq6rt7uxyv2gyywh5fob8&st=xqb0bsu7&dl=1"
-          download>
-          <i class="fab fa-apple"></i>
-          <div class="os-meta">
-            <span>macOS</span>
-            <span class="os-sub" id="subMac">Apple Silicon &amp; Intel (.dmg)</span>
-          </div>
+          download style="text-decoration: none; color: inherit;">
+          <i class="fab fa-apple"></i> macOS
         </a>
-        <div class="download-btn" id="btnWin"
-          onclick="showToast('Windows build is coming soon! Follow JSpiders JNTU for release updates.')">
-          <i class="fab fa-windows"></i>
-          <div class="os-meta">
-            <span>Windows</span>
-            <span class="os-sub" id="subWin">Windows 10/11 (Coming soon)</span>
-          </div>
+        <div class="download-btn"
+          onclick="alert('Download for Windows – coming soon! Follow JSpiders JNTU for updates.')">
+          <i class="fab fa-windows"></i> Windows
         </div>
-        <div class="download-btn" id="btnLinux"
-          onclick="showToast('Linux AppImage / .deb is coming soon! Follow JSpiders JNTU for updates.')">
-          <i class="fab fa-linux"></i>
-          <div class="os-meta">
-            <span>Linux</span>
-            <span class="os-sub" id="subLinux">Ubuntu / Fedora (Coming soon)</span>
-          </div>
+        <div class="download-btn"
+          onclick="alert('Download for Linux – coming soon! Follow JSpiders JNTU for updates.')">
+          <i class="fab fa-linux"></i> Linux
         </div>
       </div>
       <div class="download-note">
@@ -2376,77 +2204,28 @@
     <!-- Footer -->
     <footer class="footer">
       <div>© 2025 JTrace · Built with ❤️ by <span class="JSpiders-link">Prem Shahane</span></div>
-      <div class="footer-links">
-        <span onclick="showToast('GitHub repository link coming soon!')"><i class="fab fa-github"></i> GitHub</span>
-        <span onclick="showToast('Contact JSpiders JNTU branch for support & feedback.')"><i class="fas fa-envelope"></i> Contact</span>
+      <div style="display: flex; gap: 2rem;">
+        <span><i class="fab fa-github"></i> GitHub</span>
+        <span><i class="fas fa-envelope"></i> Contact</span>
         <span><i class="fas fa-graduation-cap"></i> JSpiders JNTU</span>
       </div>
     </footer>
   </div>
 
   <script>
-    // Global Toast Helper
-    function showToast(message) {
-      const container = document.getElementById('toastContainer');
-      const toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.innerHTML = `<i class="fas fa-bell" style="color: #F58220;"></i><span>${message}</span>`;
-      container.appendChild(toast);
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(10px)';
-        toast.style.transition = 'all 0.3s ease';
-        setTimeout(() => toast.remove(), 300);
-      }, 3600);
-    }
-
-    // Copy Code Helper
-    function copyCodeSnippet(btn) {
-      const code = btn.parentElement.querySelector('code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        const orig = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied';
-        btn.style.color = '#4ADE80';
-        btn.style.borderColor = '#4ADE80';
-        setTimeout(() => {
-          btn.innerHTML = orig;
-          btn.style.color = '';
-          btn.style.borderColor = '';
-        }, 1800);
-      });
-    }
-
     document.addEventListener('DOMContentLoaded', function () {
-      // ===== AMBIENT CURSOR AURA =====
-      const aura = document.getElementById('cursorAura');
-      window.addEventListener('mousemove', (e) => {
-        if (aura) {
-          aura.style.left = e.clientX + 'px';
-          aura.style.top = e.clientY + 'px';
-        }
-      }, { passive: true });
-
-      // ===== RAYCAST-STYLE SPOTLIGHT ON CARDS =====
-      document.querySelectorAll('.spotlight-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-        });
-      });
-
       // ===== PARTICLE SYSTEM =====
       const particlesContainer = document.getElementById('particles');
-      const colors = ['rgba(96,165,250,0.55)', 'rgba(192,132,252,0.5)', 'rgba(245,130,32,0.45)', 'rgba(56,189,248,0.5)'];
-      for (let i = 0; i < 28; i++) {
+      const particleCount = 30;
+      for (let i = 0; i < particleCount; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
         p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = (14 + Math.random() * 18) + 's';
-        p.style.animationDelay = (Math.random() * 18) + 's';
-        const size = (1.5 + Math.random() * 2.5) + 'px';
-        p.style.width = size;
-        p.style.height = size;
+        p.style.animationDuration = (12 + Math.random() * 18) + 's';
+        p.style.animationDelay = (Math.random() * 20) + 's';
+        p.style.width = p.style.height = (1 + Math.random() * 3) + 'px';
+        p.style.opacity = 0.2 + Math.random() * 0.4;
+        const colors = ['rgba(106,169,255,0.6)', 'rgba(162,116,255,0.5)', 'rgba(245,130,32,0.5)', 'rgba(92,229,255,0.5)'];
         p.style.background = colors[Math.floor(Math.random() * colors.length)];
         particlesContainer.appendChild(p);
       }
@@ -2454,10 +2233,10 @@
       // ===== NAVBAR SCROLL EFFECT =====
       const navbar = document.getElementById('navbar');
       window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 24);
-      }, { passive: true });
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+      });
 
-      // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+      // ===== SMOOTH SCROLL FOR NAV LINKS =====
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           const target = document.querySelector(this.getAttribute('href'));
@@ -2468,7 +2247,8 @@
         });
       });
 
-      // ===== SCROLL REVEAL =====
+      // ===== SCROLL REVEAL (IntersectionObserver) =====
+      const revealEls = document.querySelectorAll('.reveal');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -2476,153 +2256,30 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => observer.observe(el));
 
-      // ===== OS DETECTION FOR DOWNLOAD BUTTONS =====
-      const ua = navigator.userAgent.toLowerCase();
-      if (ua.includes('mac')) {
-        const macBtn = document.getElementById('btnMac');
-        macBtn.classList.add('recommended');
-        document.getElementById('subMac').textContent = 'Detected · Ready (.dmg)';
-      } else if (ua.includes('win')) {
-        document.getElementById('btnWin').classList.add('recommended');
-      } else if (ua.includes('linux')) {
-        document.getElementById('btnLinux').classList.add('recommended');
-      }
-
-      // ===== INTERACTIVE HERO LIVE STEP TRACER =====
-      const heroSteps = [
-        { line: 3, label: 'STEP 1/9 · LINE 3', vars: [{ name: 'args', val: 'String[0]', changed: false }], out: 'Hello from bundled Java!' },
-        { line: 4, label: 'STEP 2/9 · LINE 4 (init)', vars: [{ name: 'i', val: '0', changed: true }, { name: 'i < 3', val: 'true', changed: false }], out: 'Hello from bundled Java!' },
-        { line: 5, label: 'STEP 3/9 · LINE 5', vars: [{ name: 'i', val: '0', changed: false }], out: 'Hello from bundled Java!  →  i = 0' },
-        { line: 4, label: 'STEP 4/9 · LINE 4 (i++)', vars: [{ name: 'i', val: '1', changed: true }, { name: 'i < 3', val: 'true', changed: false }], out: 'Hello from bundled Java!  →  i = 0' },
-        { line: 5, label: 'STEP 5/9 · LINE 5', vars: [{ name: 'i', val: '1', changed: false }], out: 'i = 0  →  i = 1' },
-        { line: 4, label: 'STEP 6/9 · LINE 4 (i++)', vars: [{ name: 'i', val: '2', changed: true }, { name: 'i < 3', val: 'true', changed: false }], out: 'i = 0  →  i = 1' },
-        { line: 5, label: 'STEP 7/9 · LINE 5', vars: [{ name: 'i', val: '2', changed: false }], out: 'i = 1  →  i = 2' },
-        { line: 4, label: 'STEP 8/9 · LINE 4 (exit)', vars: [{ name: 'i', val: '3', changed: true }, { name: 'i < 3', val: 'false', changed: true }], out: 'i = 1  →  i = 2' },
-        { line: 7, label: 'STEP 9/9 · RETURN VOID', vars: [{ name: 'status', val: 'exit 0', changed: true }], out: 'Process finished with exit code 0' }
-      ];
-
-      let heroIdx = 0;
-      let heroPlaying = true;
-      const codeLines = document.querySelectorAll('#heroCodeBlock .code-line');
-      const heroStepLabel = document.getElementById('heroStepLabel');
-      const heroVarChips = document.getElementById('heroVarChips');
-      const heroStdoutText = document.getElementById('heroStdoutText');
-      const heroPlayBtn = document.getElementById('heroPlayBtn');
-
-      function renderHeroStep(index) {
-        const s = heroSteps[index];
-        codeLines.forEach(cl => {
-          cl.classList.toggle('active-line', Number(cl.dataset.line) === s.line);
-        });
-        heroStepLabel.innerHTML = `<i class="fas fa-crosshairs"></i> ${s.label}`;
-        heroVarChips.innerHTML = s.vars.map(v =>
-          `<div class="var-chip ${v.changed ? 'mutated' : ''}"><i class="fas fa-cube"></i> ${v.name} = <span class="val">${v.val}</span></div>`
-        ).join('') + `<div class="var-chip"><i class="fas fa-arrow-right"></i> line ${s.line}</div>`;
-        heroStdoutText.textContent = s.out;
-      }
-
-      renderHeroStep(heroIdx);
-
-      let heroTimer = setInterval(() => {
-        if (heroPlaying) {
-          heroIdx = (heroIdx + 1) % heroSteps.length;
-          renderHeroStep(heroIdx);
-        }
-      }, 2200);
-
-      document.getElementById('heroPrevBtn').addEventListener('click', () => {
-        heroPlaying = false;
-        heroPlayBtn.classList.remove('playing');
-        heroPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
-        heroIdx = (heroIdx - 1 + heroSteps.length) % heroSteps.length;
-        renderHeroStep(heroIdx);
-      });
-
-      document.getElementById('heroNextBtn').addEventListener('click', () => {
-        heroPlaying = false;
-        heroPlayBtn.classList.remove('playing');
-        heroPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
-        heroIdx = (heroIdx + 1) % heroSteps.length;
-        renderHeroStep(heroIdx);
-      });
-
-      heroPlayBtn.addEventListener('click', () => {
-        heroPlaying = !heroPlaying;
-        heroPlayBtn.classList.toggle('playing', heroPlaying);
-        heroPlayBtn.innerHTML = heroPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
-      });
-
-      // Subtle 3D tilt on Hero Card
-      const heroCard = document.getElementById('heroCard');
-      const heroVisual = document.querySelector('.hero-visual');
-      if (heroCard && heroVisual) {
-        heroVisual.addEventListener('mousemove', (e) => {
-          const rect = heroVisual.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width - 0.5;
-          const y = (e.clientY - rect.top) / rect.height - 0.5;
-          heroCard.style.transform = `rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
-        });
-        heroVisual.addEventListener('mouseleave', () => {
-          heroCard.style.transform = '';
-        });
-      }
-
-      // ===== SYNCHRONIZED 3-PANE TRACE WORKBENCH =====
-      const wbStates = [
-        {
-          title: 'TRACE · STEP 10/18 · MAIN.MAIN()',
-          line: 'LINE 4',
-          vars: '<div class="stack-var-item">args = String[0]</div><div class="stack-var-item" style="border-color: var(--accent); color: #93C5FD;">i = 2</div>',
-          console: '&gt; Hello from bundled Java!<br>&gt; i = 0<br>&gt; i = 1'
-        },
-        {
-          title: 'TRACE · STEP 11/18 · MAIN.MAIN()',
-          line: 'LINE 5',
-          vars: '<div class="stack-var-item">args = String[0]</div><div class="stack-var-item">i = 2</div>',
-          console: '&gt; Hello from bundled Java!<br>&gt; i = 0<br>&gt; i = 1<br><span style="color:#4ADE80;">&gt; i = 2</span>'
-        },
-        {
-          title: 'TRACE · STEP 12/18 · MAIN.MAIN()',
-          line: 'LINE 4',
-          vars: '<div class="stack-var-item">args = String[0]</div><div class="stack-var-item" style="border-color: #4ADE80; color: #86EFAC;">i = 3 (updated)</div>',
-          console: '&gt; Hello from bundled Java!<br>&gt; i = 0<br>&gt; i = 1<br>&gt; i = 2'
-        }
-      ];
-
-      const traceRows = document.querySelectorAll('.trace-step-row');
-      const wbTitle = document.getElementById('wbTitle');
-      const wbLineBadge = document.getElementById('wbLineBadge');
-      const wbVarsList = document.getElementById('wbVarsList');
-      const wbConsole = document.getElementById('wbConsole');
-      let currentRow = 0;
-      let wbAuto = true;
-
-      function selectWorkbenchRow(idx) {
-        traceRows.forEach((r, i) => r.classList.toggle('active', i === idx));
-        const st = wbStates[idx];
-        wbTitle.innerHTML = `<i class="fas fa-wave-square"></i> ${st.title}`;
-        wbLineBadge.textContent = st.line;
-        wbVarsList.innerHTML = st.vars;
-        wbConsole.innerHTML = st.console;
-      }
-
-      traceRows.forEach((row, idx) => {
-        row.addEventListener('click', () => {
-          wbAuto = false;
-          currentRow = idx;
-          selectWorkbenchRow(idx);
+      // ===== DOWNLOAD BUTTON RIPPLE =====
+      document.querySelectorAll('.download-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const ripple = document.createElement('span');
+          ripple.style.position = 'absolute';
+          ripple.style.width = '100%';
+          ripple.style.height = '100%';
+          ripple.style.background = 'rgba(245, 130, 32, 0.25)';
+          ripple.style.borderRadius = '80px';
+          ripple.style.transform = 'scale(0)';
+          ripple.style.opacity = '1';
+          ripple.style.pointerEvents = 'none';
+          ripple.style.transition = 'transform 0.6s, opacity 0.6s';
+          btn.appendChild(ripple);
+          setTimeout(() => {
+            ripple.style.transform = 'scale(2.5)';
+            ripple.style.opacity = '0';
+          }, 10);
+          setTimeout(() => ripple.remove(), 600);
         });
       });
-
-      setInterval(() => {
-        if (wbAuto && traceRows.length) {
-          currentRow = (currentRow + 1) % traceRows.length;
-          selectWorkbenchRow(currentRow);
-        }
-      }, 3000);
 
       // ===== DOCS TABS =====
       const tabs = document.querySelectorAll('.docs-tab');
@@ -2632,11 +2289,66 @@
           const target = tab.getAttribute('data-tab');
           tabs.forEach(t => t.classList.remove('active'));
           tab.classList.add('active');
-          panes.forEach(p => p.classList.toggle('active', p.id === target));
+          panes.forEach(p => {
+            p.classList.remove('active');
+            if (p.id === target) p.classList.add('active');
+          });
         });
       });
 
-      // ===== JSPIDERS BANNER STAT COUNT-UP =====
+      // ===== TRACE STEP ROW ROTATION =====
+      const traceRows = document.querySelectorAll('.trace-step-row');
+      let currentRow = 0;
+      setInterval(() => {
+        traceRows.forEach(r => r.classList.remove('active'));
+        if (traceRows[currentRow]) traceRows[currentRow].classList.add('active');
+        currentRow = (currentRow + 1) % traceRows.length;
+      }, 2800);
+
+      // ===== CONSOLE LINE HIGHLIGHT =====
+      const consoleMock = document.querySelector('.console-mock');
+      if (consoleMock) {
+        setInterval(() => {
+          const lines = consoleMock.querySelectorAll('.output-line');
+          if (lines.length > 3) {
+            const last = lines[lines.length - 1];
+            last.style.transition = 'color 0.4s ease, text-shadow 0.4s ease';
+            last.style.color = '#9fe0b0';
+            last.style.textShadow = '0 0 10px rgba(155, 224, 176, 0.6)';
+            setTimeout(() => {
+              last.style.color = '';
+              last.style.textShadow = '';
+            }, 800);
+          }
+        }, 3500);
+      }
+
+      // ===== CONSOLE MOCK TEXT TYPING (first lines) =====
+      const consoleLines = document.querySelectorAll('.console-mock .output-line');
+      // Reset animation by re-adding
+      consoleLines.forEach((line, i) => {
+        line.style.animation = 'none';
+        void line.offsetWidth;
+        line.style.animation = `outputReveal 0.5s ease-out ${0.15 + i * 0.12}s forwards`;
+      });
+
+      // ===== FLOATING CARD PARALLAX ON MOUSE =====
+      const card = document.querySelector('.floating-card');
+      if (card) {
+        const heroVisual = document.querySelector('.hero-visual');
+        heroVisual.addEventListener('mousemove', (e) => {
+          const rect = heroVisual.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = `translateY(-6px) rotateX(${2 + y * 4}deg) rotateY(${2 + x * 4}deg)`;
+        });
+        heroVisual.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      }
+
+      // ===== JSpiders BANNER STAT COUNT-UP =====
+      const statNumbers = document.querySelectorAll('.JSpiders-stat .number');
       const statObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -2644,10 +2356,10 @@
             const text = el.textContent;
             const hasPlus = text.includes('+');
             const hasPercent = text.includes('%');
-            const numeric = parseInt(text.replace(/[^0-9]/g, ''), 10);
+            const numeric = parseInt(text.replace(/[^0-9]/g, ''));
             if (!isNaN(numeric) && numeric > 0) {
               let current = 0;
-              const step = Math.max(1, Math.ceil(numeric / 38));
+              const step = Math.max(1, Math.floor(numeric / 40));
               const timer = setInterval(() => {
                 current += step;
                 if (current >= numeric) {
@@ -2655,13 +2367,13 @@
                   clearInterval(timer);
                 }
                 el.textContent = current + (hasPlus ? '+' : '') + (hasPercent ? '%' : '');
-              }, 28);
+              }, 30);
             }
             statObserver.unobserve(el);
           }
         });
       }, { threshold: 0.5 });
-      document.querySelectorAll('.JSpiders-stat .number').forEach(el => statObserver.observe(el));
+      statNumbers.forEach(el => statObserver.observe(el));
     });
   </script>
 </body>
